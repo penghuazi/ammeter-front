@@ -1,0 +1,29 @@
+.kcp_transact_check{
+	border-top:$mune-border;
+	border-bottom:$mune-border;
+	width: 185px;
+	box-sizing:border-box;
+	height: 36px;
+	@extend %inline-block;
+	 border-spacing: 0;
+	 &>div{
+	 	height: 100%;
+	 	i{
+	 		padding: 0 6px;
+	 	}
+	 }
+}
+
+.kcp_transact_bear{
+	color:$font-color;
+	padding: 25px 0;
+	.line-r{
+		border-right:$mune-border;
+		div{
+			padding-left: 10px;
+		}
+		div:first-child{
+			color:#9b9b9b;
+		}
+	}
+}

@@ -1,0 +1,23 @@
+@import "./variables";
+@import "./mixins/index"; 
+@import "./library/index" ;
+@import "./layout/index" ;
+@import "./golbal" ;
+@import "./base/index" ;
+@import "./components/index";
+@import "./pages/index";
+
+html, body {
+  // body 背景
+  background-color:#fff;
+  font-size: $base-font-size;
+  overflow: hidden;
+  height: 100%;
+  // 字体显示优化
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $base-font-family;  
+}
+  
+  
+

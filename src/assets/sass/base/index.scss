@@ -1,0 +1,57 @@
+@import 'header';
+@import 'menu';
+
+// 应用包裹体
+#app,.kcpapp {
+ font-family: $base-font-family ;
+ height:100%;
+}
+// 内容块包裹体 Header 之下部分
+.kcp_content {
+	box-sizing:border-box;
+	height: 100%;
+	padding-bottom:$header-height;
+	&-intable{
+		display: table;
+		table-layout:fixed;
+		height: 100%;
+		width: 100%;
+		&-rel{ //ie 下table-cell ,relative 失效
+			height: 100%;
+			position:relative;
+		}
+		.kcp-menu{
+			display: table-cell;
+			vertical-align:top;
+			width: 188px;
+			height: 100%;
+			nav{
+				height: 100%;
+				width: 100%;
+				overflow: auto;
+				color:$mune-color;
+				border-right:$mune-border;
+				//ie 和 火狐下高度百分比bug
+				position:absolute;
+			}
+		}
+		.kcp_work{
+			display: table-cell;
+			vertical-align: top;
+			height: 100%;
+			.kcp_work__router{
+				position:absolute;
+				width: 100%;
+				overflow: auto;
+				height: 100%;
+				.kcp_min_w{
+					min-width: 982px;
+					padding:0 20px;
+				}
+			}
+		}
+
+	}
+}
+
+

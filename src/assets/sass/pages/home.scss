@@ -1,0 +1,55 @@
+.kcp_home_nav{
+	margin: 45px auto;
+	@extend %row;
+	height: 100px;
+	border-spacing:20px 0 !important;
+	&>li{
+		@extend %col;
+		cursor: pointer;
+		margin-left: 20px;
+		padding:0  16px;
+		box-sizing:border-box;
+		i{
+			font-size: 54px;
+			float: right;
+			color:rgba(255,255,255,.2);
+			padding-top: 23px;
+		}
+		ul{
+			float: left;
+			color: #fff;
+			height: 100%;
+			&>li:nth-child(1){
+				font-size: 40px;
+				height: 56px;
+				line-height: 56px;
+			}
+			&>li:nth-child(2){
+				margin-top: 11px;
+				font-size: 16px;
+			}							
+		}
+	}
+	&>li:nth-child(2){
+		width: 260px;
+		background-color: #fca634;
+	}
+	&>li:nth-child(3){
+		width: 260px;
+		background-color: #4293f2;
+	}
+	&>li:nth-child(4){
+		width: 260px;
+		background-color: #8a7bf1;
+	}		
+}
+.kcp_numbers{
+	@include bgcolor(0.3);
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	border-radius:50%;
+	color:$mune-color;
+	font-size: 14px;
+}

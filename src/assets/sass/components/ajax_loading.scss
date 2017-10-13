@@ -1,0 +1,75 @@
+
+
+
+.kcp_ajax_load{
+  position: fixed;
+  top: -60px;
+  right: 20px;
+  z-index: 10000;
+  opacity: 0;
+  width: 180px;
+  height: 60px;
+  background-color: #2196f3;
+  @include vendor(box-size,border-box)
+  @include vendor(transition,all 0.7s)
+  @include vendor( border-radius,3px)
+  &>div{
+    color:#fff;
+    padding: 20px;
+  }
+}
+
+.kcp_load_out{
+  top: 40px;
+  opacity: 1;
+}
+
+
+
+
+.spinner {
+  display: inline-block;
+  margin-right: 10px;
+  @include vendor(animation,rotation 1s linear infinite)
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotation {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-ms-keyframes rotation {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotation {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,199 @@
+.kcp_market_search{
+	margin:22px 0 35px 0;
+}
+
+
+.kcp_channel{
+	&_market{
+		width: 840px;
+		margin:72px auto 0 auto;
+		a{
+			padding: 0 10px;
+		}
+		&-mean{
+				border:1px solid #163b65;
+				border-radius:2px;
+				width: 40px;
+				height: 24px;
+				text-align: center;
+				line-height: 24px;
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				right: 0;
+		}
+		table td{
+			border-top: $mune-border;
+			border-bottom:none;
+		}
+		.kcp_nav_table-active:after{
+			bottom:2px;
+		}
+
+	}
+	&-footer{
+		margin: 81px auto;
+		padding-right: 30px;
+		width: 840px;
+
+	}
+}
+.kcp_info{
+	padding-bottom: 111px;
+	&-title{
+		padding:38px 0 24px 0;	
+	}
+	.header_title{
+			padding-left: 10px;
+			font-size: 14px;			
+			height: 36px;
+			line-height: 36px;
+			font-family: $Semiboldfamily;
+			@include bgcolor(0.4);
+			div{
+				@include bgcolor(0.5);
+				width: 56px;
+				text-align: center;
+			}
+	}
+	.content{
+		@include bgcolor(0.2);
+		color:$font-color;
+		&>div{
+			box-sizing:border-box;
+		}
+		.market_name{
+			width: 171px;
+			white-space:nowrap;
+			padding-left: 65px;
+			box-sizing:border-box;
+		}
+		.liney{
+			position:relative;
+		}
+		.liney:before{
+				content: "";				
+				border-right:$mune-border;
+				position:absolute;
+				left: -11px;
+				top: 2px;
+				bottom: 2px;
+				margin:auto;
+		}		
+		&-name{
+				@extend %row;
+				padding-top: 25px;
+				&>div{
+					@extend %col;
+				}
+		}
+		&-date{
+				@extend %row;
+				margin-top: 19px;
+				&>div{
+					@extend %col;
+				}				
+		}
+		&-theme{
+				@extend %row;
+				padding-top: 29px;
+				&>div{
+					@extend %col;
+				}				
+		}
+		&-info{
+				@extend %row;
+				padding-top: 41px;
+				padding-bottom: 34px;
+				&>div{
+					@extend %col;
+				}				
+		}
+		&-rule{
+			padding:36px 20px 40px;	
+			td{
+				background-color: #fff;
+			}
+			.ruleinfo{
+				white-space:normal;
+				width: 500px;
+			}
+			&-cost{
+				margin-top: 29px;
+				font-size: 18px;
+				padding-left:66px;
+				.costcolor{
+					color:#ff001f;
+					margin:0 90px 0 20px;
+				}
+			}
+		}
+		&-channel{
+			padding:20px 65px;
+			.list{
+		        color:$font-color;
+		        border-bottom: $mune-border;
+		        white-space:nowrap;	
+		        padding:13px 16px;			
+				ul{
+					@extend %row;
+					li{
+						text-align: center;
+						@extend %col;
+					}
+				}
+			}
+			.list:last-child{
+				border:none;
+			}
+		}
+		&-merchants{
+			padding: 49px 0 47px 0;
+			text-align: center;
+			.note{
+				color: #9b9b9b;
+				margin-top: 13px;
+			}
+		}
+		&-note{
+			padding:28px 65px;								
+		}
+	}
+}
+
+
+.invite_nav_tab{
+	overflow: hidden;
+	margin-top: 28px;
+	li{
+		padding:3px 10px;
+		color:$font-color;
+		box-sizing:border-box;
+	}
+	li:first-child{
+		padding:3px 0px;
+	}
+	.types{
+		float: left;
+		margin-right: 36px;
+		color: $mune-color;
+		cursor:pointer;
+	}
+	.more{
+		border:1px solid $mune-color;
+		border-radius:2px;
+	}
+	.active{
+	 	color:#fff;
+	 	background-color:#9b9b9b;
+	}
+}
+.invite_table_head{
+	span{
+		color:#ff7000;
+		font-size: 14px;
+		font-family: $Semiboldfamily;
+	}
+}

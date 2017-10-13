@@ -1,0 +1,58 @@
+.kcp_menu_home{
+	.action{
+		height: 58px;
+		line-height: 58px;
+		@include bgcolor(0.3);
+	}
+	li{
+		border-bottom:$mune-border;
+	}
+}
+.kcp_menu_content{
+		height: 44px;
+		line-height:44px;
+		cursor: pointer;
+}
+.kcp_menu_icon{
+	padding:$mune-icon-padding;
+}
+nav {
+	.kcp_active{
+		font-family: $Semiboldfamily;
+		position: relative;
+		font-weight: bold;
+	}
+	.kcp_active:before{
+		content: '';
+		border-left:4px solid #163b65;
+		height: 44px;
+		left: 0;
+		top: 0;
+		position: absolute;
+	}	
+}
+.kcp_menu_list{
+	white-space:nowrap;
+	&>li{
+		border-bottom:$mune-border;
+	}
+	ul>li:hover{
+		background-color:rgba(206,221,233,0.3);
+		
+	}
+
+	&-titles,a{
+		color:#9b9b9b;
+	}	
+	&-names{
+		padding-left: 46px;
+	}
+	.kcp_menu-transition li{
+		transition: all .15s ease;
+		height: 44px;		
+	}
+	.kcp_menu-enter li,.kcp_menu-leave li{
+		height: 0;	
+	}
+
+}

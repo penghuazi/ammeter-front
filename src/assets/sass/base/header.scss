@@ -1,0 +1,56 @@
+.kcp_header{
+	width: 100%;
+	height:$header-height;
+	line-height:$header-height;
+	background-color: #163b65;
+	color:#fff;
+	white-space:nowrap;
+	position: relative;
+	&-log{
+		float: left;
+		padding-left: 18px;
+		font-size: 18px;
+		height: 100%;
+		img{
+			width: 48px;
+			height: 48px;
+			vertical-align: middle;
+		}
+		.line{
+			border-right:1px solid #fff;
+			height: 20px;
+			margin: 0 18px;
+		}
+	}
+	&-user{
+		float: right;
+		padding-right:20px;
+		cursor: pointer;
+		height: 100%;		
+		img{
+			width: 32px;height: 32px;
+			border-radius: 50%;
+			margin-right: 16px;
+			vertical-align: middle;
+		}
+	}
+	&_basic{
+		width: 140px;
+		position: absolute;
+		right: 0;
+		top: $header-height;
+		color: $mune-color;
+		z-index: 10000;
+		text-align: center;
+		box-shadow:0 2px 4px 0 rgba(0,0,0,0.19);
+		background-color:#fff;
+		li{
+			height: 44px;
+			line-height: 44px;
+			cursor: pointer;
+			&:hover{
+			color: #ff0909;
+		}
+		}
+	}
+}

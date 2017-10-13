@@ -1,0 +1,45 @@
+	
+
+
+	$modal_bg:rgba(0,0,0,0.4);
+
+	.kcp_modal{
+			position: fixed;
+			z-index: 100000;
+			top: 0;bottom: 0;left: 0;right:0;
+			background-color: $modal_bg;
+			outline: 10000px solid $modal_bg;
+  			overflow: auto;
+  			padding: 20px;
+			&__div{
+				display: table;
+				width: 100%;
+				height: 100%;
+				&__box{
+					  display: table-cell;
+	  				  vertical-align: middle;
+					 &__intable{
+					 	border-radius:2px;
+						 display: block;
+						 margin: 0 auto;
+						 background-color:#fff;
+						 overflow-x: auto;
+						 overflow-y: hidden;
+						 border-top:4px solid $mune-color;
+						 white-space:nowrap;
+					}
+
+				}
+
+			}
+			&__expand-transition{
+			  transition: all .3s ease;
+			  opacity:1;
+			  transform: translateY(0);				
+			}
+			&__expand-enter,&__expand-leave{
+			  opacity: 0;
+			  transform: translateY(-100px);				
+			}
+
+		}
