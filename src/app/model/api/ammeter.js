@@ -8,6 +8,16 @@ export default {
 	dailyReport:{get:'device/dailyReport/{ammeterId}/{reportDate}'},
 	dailyNetworkReport:{get:'network/list/{imsi}/{queryDate}'},
 
+	// gis 列表
+	get_position_list:{save:'/position/list'},
+	// 新增 gis
+	add_position:{save:'/position/create'},
+	// gis 详情
+	get_position_info:{get:'/position/ammeterPositionInfo/{positionId}/{sn}'},
+
+
+
+
 	
 
 

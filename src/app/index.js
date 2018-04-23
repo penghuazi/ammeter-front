@@ -12,6 +12,7 @@ Vue.use(components)
 Vue.use(directives)
 Vue.use(Filters)
 
+
 let app = Vue.extend({
     store:model
 })

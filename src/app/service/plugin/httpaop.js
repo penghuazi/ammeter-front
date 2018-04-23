@@ -42,16 +42,16 @@ export default function install(Vue){
                                 typeof body == 'string' && (body = JSON.parse(body))
                             }catch(err){}
                             
-                            if(body.code == 10000){
+                            if(body.code == 10000||body.code > 100000){
                                 cache.key && (cache.val || Service.session.set(cache.key,res))
                                 resolvecb && resolvecb(body)
                             }else{
-                                $KsDialog.info(body.message)
+                                $KsDialog.warning(body.message)
                                 rejectcb && rejectcb(body)
                             }
                           
                         },(res)=>{
-                            $KsDialog.info('连不上服务，请稍后再试！')
+                            // $KsDialog.info('连不上服务，请稍 后再试！')
                             rejectcb && rejectcb(body)
                         })
                 }

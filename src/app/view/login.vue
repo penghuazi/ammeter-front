@@ -1,31 +1,5 @@
 <template>
     <div>
-            <h1></h1>
-               
-
-<!-- 
-            <div class="login-box pb20">
-                <div class="row-auto tc mt20 lh36">
-                    <div class="col"><h3>系统登录</h3> </div>
-                </div>
-                <div class="row-auto mt120">
-                    <div class="col w120 r">用户名：</div>
-                    <div class="col"><input type="text" class="kcp_text w260" v-model="user.userName"> </div>
-                </div>
-                <div class="row-auto  mt20">
-                    <div class="col w120 r">密&nbsp;&nbsp;&nbsp;码：</div>
-                    <div class="col"><input type="password" class="kcp_text w260" v-model="user.password"> </div>
-                     <div class="col-auto"></div>
-                </div>
-                <div class="row-auto  mt20 tc">
-                    <div class="col-auto"><button @click='bknext' class="kcp_nbtn w120">登录</button> </div>
-                </div>
-            </div>        -->
-
-
-
-    
-
         <div class="login-box pt40 pb40 pr30 pl30">
             <div class="row">
                 <div class="col br1s">
@@ -47,15 +21,15 @@
                     </div>
                     <div class="row mt20">
                         <div class="col lh36 r pr10">用户名：</div>
-                        <div class="col w260"><input type="text" class="kcp_text w260" v-model="user.userName"></div>
+                        <div class="col w260"><input type="text" class="kcp_text w260" v-model="user.username | trim"></div>
                     </div>
                     <div class="row mt20">
                         <div class="col lh36 r pr10">密&nbsp;&nbsp;&nbsp;码：</div>
-                        <div class="col w260"><input type="password" class="kcp_text w260" v-model="user.password"></div>
+                        <div class="col w260"><input type="password" class="kcp_text w260" v-model="user.password | trim"></div>
                     </div>
                     <div class="row mt20">
                         <div class="col lh36 r pr10"></div>
-                        <div class="col w260"><button @click='bknext' class="kcp_nbtn w120">登录</button>
+                        <div class="col w260"><button @click='login' class="kcp_nbtn w120">登录</button>
                             <a @click="" class="ml30">找回密码</a>
                         </div>
                     </div>
@@ -67,40 +41,75 @@
 <script type="text/javascript">
  import bkMenu from '../config/mock/bank.js'
     export default {
-        vuem:['common.dic_list'],
+        vuem:['common.login'],
         data (){
             return {
+                show:false,
+                errormsg:'',
+                remember:'',
                 user:{
-                    userName:'',
+                    username:'',
                     password:'',
                 }
             }
         },
         methods:{
            
-            bknext(){
-                // this.getDic()
-                if(this.user.userName=='admin',this.user.password=='password@1'){
-                    this.$router.go({name:'bkhome'})
-                    Service.session.set('menu',bkMenu)
-                }else{
-                    alert('用户名或者密码不正确！')
-                }
+            // bknext(){
+            //     // this.getDic()
+            //     if(this.user.userName=='admin',this.user.password=='password@1'){
+            //         this.$router.go({name:'bkhome'})
+            //         Service.session.set('menu',bkMenu)
+            //     }else{
+            //         alert('用户名或者密码不正确！')
+            //     }
                 
+            // },
+
+            bknext(){           
+                this.$router.go({name:'bkhome'})
+                Service.session.set('menu',bkMenu)
+            },
+
+            login(){
+                // this.$validate()
+                // if(this.$validatorlogin.invalid) return;   
+                this.getLogin()
+
             },
             
-            getDic(){
-                this.$m.common.dic_list().then(res=>{
-                let dicList=res.data.reduce((obj,curr)=>{//类型分类
+            getLogin(){
+                // this.bknext()
+                this.$m.common.login(this.user).then(res=>{
+                    if(res.code===100001){
+                        this.errormsg=res.message
+                    }else{
+                         !!this.remember?Service.cookie.set('login',JSON.stringify(this.user),10):Service.cookie.clear('login')                
+                         let data=res.data
+
+                         // this.getDic(data.dictionaryList)//状态数据
+
+                         Service.session.set('kcpLesseeId',data.authToken)
+                         Service.session.set('kcpLesseeType',data.channelId)
+                         Service.session.set('user',data)
+                         this.bknext()
+                    }
+                })
+            },
+            getDic(list){
+                let dicList=list.reduce((obj,curr)=>{//类型分类
                    obj[curr.type]?obj[curr.type].push(curr):obj[curr.type]=new Array(curr)
                    return obj
                  },{})
                   Service.session.set('dictype',dicList)
-                })
             }                                    
         },
         ready (){
-           
+           let logincookie=Service.cookie.get('login')
+            if(!!logincookie){
+                this.loginName= JSON.parse(logincookie)
+                this.remember=true
+            }
         }        
     }
 </script>

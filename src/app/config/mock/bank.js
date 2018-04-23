@@ -18,6 +18,12 @@ export default  [
         ]
       },
       {
+        name: 'GIS中心', icon: 'icon', menu_link: '',
+        subMenu: [
+          {name: '终端数据维护', icon: 'icon', link: 'gis_ammeter_list'}
+        ]
+      },
+      {
         name: '系统设置', icon: 'icon', menu_link: '',
         subMenu: [
           {name: '角色管理', icon: 'icon', link: ''},

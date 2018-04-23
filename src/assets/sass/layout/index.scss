@@ -10,6 +10,7 @@
 }
  .col {
         @extend %col;
+        
     }
      .col-top {
         @extend %col-top;
@@ -19,7 +20,9 @@
     @extend .tb;
 }
 
-.row {@extend %row;}
+.row {
+    @extend %row;
+}
 
 %col-auto{
     @extend %tb-cell;
