@@ -13,11 +13,18 @@
     data(){
       return{
         id:'',
-        position:{}
+        gis:{
+          imei: '',
+          address: '',
+          amapLatitude: '',
+          amapLongitude: '',
+          status: ''
+        }
       }
     },
     methods:{
         initMap: function(){
+          let _this = this
           //初始化地图对象，加载地图
           var map = new AMap.Map("container", {
               resizeEnable: true,
@@ -35,15 +42,17 @@
                   }
               },
               //图标
-              iconStyle: 'black',
+              iconStyle: 'red',
               map: map,
-              position: [120.593149,31.316099]
+              position: [_this.gis.amapLongitude, _this.gis.amapLatitude]
             })
 
             var infoWindow = new SimpleInfoWindow({
-              infoTitle: '<strong>这里是标题</strong>',
-              infoBody: '<p class="my-desc"><strong>这里是内容。</strong> <br/> 高德地图 JavaScript API，是由 JavaScript 语言编写的应用程序接口，' +
-                  '它能够帮助您在网站或移动端中构建功能丰富、交互性强的地图应用程序</p>',
+              infoTitle: '<strong>IMEI:'+_this.gis.imei+'</strong>',
+              infoBody: '<p class="my-desc"><strong>状态：'+_this.gis.status
+              +'</strong> <br/> 高德地图经度：' +_this.gis.amapLongitude+
+                  '<br/> 高德地图纬度：'+_this.gis.amapLatitude+'<br/>地址：<strong>'+_this.gis.address+'</strong>'
+                  +'</p>',
 
               //基点指向marker的头部位置
               offset: new AMap.Pixel(0, -31)
@@ -84,8 +93,12 @@
         },
         getPositionInfo:function(id){
           this.$m.ammeter.get_position_info({positionId:id,sn:'position'}).then(res => {
-            if (res.code==10000) {
-              this.position= res.data
+            if (res.code === 10000) {
+              this.gis.imei = res.data.imei
+              this.gis.address = res.data.address
+              this.gis.amapLatitude = res.data.amapLatitude
+              this.gis.amapLongitude = res.data.amapLongitude
+              this.gis.status = res.data.status
             }
           })
         }
