@@ -5,9 +5,8 @@
 		</div>
 		<div class="kcp_market_search">
 			<!-- <input type="text" class="kcp_text w260" placeholder="请输入表号" v-model="queryData.meterNo"> -->
-			<input type="text" class="kcp_text w260" placeholder="请输入编号" v-model="queryData.number">
+			<input type="text" class="kcp_text w260" placeholder="请输入IMEI号" v-model="queryData.imei">
 			<input type="text" class="kcp_text w260" placeholder="请输入名称" v-model="queryData.name">
-			<input type="text" class="kcp_text w260" placeholder="请输地址" v-model="queryData.address">
 
 			<button class="kcp_nbtn w54 ml10" @click="search">查询</button>
 			<button class="kcp_lbtn w54 ml10" @click="add">新增</button>
@@ -16,26 +15,25 @@
 			<div class="kcp_table-lister">
 				<table>
 					<tr class="header">
-						<th>终端编号</th>
-						<th>终端名称</th>
-						<th>终端地址</th>
-						<th>GPS经度</th>
-						<th>GPS纬度</th>		
-						<th>状态</th>
+						<th>设备编号</th>
+						<th>IMEI号</th>
+						<th>设备名称</th>
+						<th>安装人员</th>
+						<th>安装日期</th>		
+						<th>位置信息</th>
+						<th>位置备注</th>
+						<th>在线状态</th>
 						<th>操作</th>
 					</tr>
 					<tr v-for="p in positionList">
-						<td>{{p.number}}</td>
+						<td>{{p.id}}</td>
+						<td>{{p.imei}}</td>
 						<td>{{p.name}}</td>
-						<td>{{p.address}}</td>
-						<td>{{p.gpsLongitude}}</td>
-						<td>{{p.gpsLatitude}}</td>
-						<td>
-							<span v-if="p.status==0" >未注册</span>
-							<span v-if="p.status==1" >已注册</span>
-							<span v-if="p.status==2" >注册失败</span>
-							<span v-if="p.status==3" >已注销</span>
-						</td>
+						<td>{{p.installer}}</td>
+						<td>{{p.createTime}}</td>
+						<td>{{'(' +p.amapLongitude +','+p.amapLatitude+ ')'}}</td>
+						<td>{{p.remark}}</td>
+						<td>{{p.statusName}}</td>
 						<td><a @click="getInfo(p.id)">查看详情</a></td>
 					</tr>
 				</table>
@@ -61,9 +59,8 @@
 			return{
 				pageGroupVal:1,
 				queryData:{
-					address:'', // (string, optional): 通讯地址 ,
 					name:'', //  (string, optional): 电表名称 ,
-					number:'', //  (string, optional): 电表编号 ,
+					imei:'', //  (string, optional): 电表编号 ,
 					pageIndex:1,
 					pageSize:10,
 				},

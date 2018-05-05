@@ -15,10 +15,7 @@ export default {
 	// gis 详情
 	get_position_info:{get:'/position/ammeterPositionInfo/{positionId}/{sn}'},
 
-
-
-
-	
-
+	// 设备总览
+	get_position_all:{save: '/position/gisList'}
 
 }

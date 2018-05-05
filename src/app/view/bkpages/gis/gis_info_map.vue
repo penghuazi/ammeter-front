@@ -28,7 +28,7 @@
           //初始化地图对象，加载地图
           var map = new AMap.Map("container", {
               resizeEnable: true,
-              center: [120.618898,31.304659],//地图中心点
+              center: [_this.gis.amapLongitude,_this.gis.amapLatitude],//地图中心点
               zoom: 13 //地图显示的缩放级别
           });
 
@@ -98,7 +98,8 @@
               this.gis.address = res.data.address
               this.gis.amapLatitude = res.data.amapLatitude
               this.gis.amapLongitude = res.data.amapLongitude
-              this.gis.status = res.data.status
+              this.gis.status = res.data.statusName
+              this.initMap()
             }
           })
         }
@@ -106,7 +107,6 @@
     ready(){
       this.id = this.$route.query.id
       this.getPositionInfo(this.id)
-      this.initMap()  
     }
   }
 </script>

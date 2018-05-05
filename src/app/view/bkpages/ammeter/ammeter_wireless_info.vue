@@ -14,18 +14,6 @@
 				<ks-date-picker type="date" v-bind:value.sync="toDay" class="l"></ks-date-picker>
 			</div>
 		</div>
-		
-
-		<div class="kcp_router_title"></div>
-
-		<div class="base-box bgc">
-			<div class="row mt20">
-				<div class="col tr pr10">cellid</div>
-				<div class="col"><input type="text" class="kcp_text w100" readonly="true" v-model="ammeter.cellid">&nbsp;&nbsp;    </div>
-				<div class="col tr pr10">rssi</div>
-				<div class="col"><input type="text" class="kcp_text w100" readonly="true" v-model="ammeter.rssi">&nbsp;&nbsp;    </div>
-			</div>
-		</div>
 
 		
 		<div class="kcp_router_title"></div>

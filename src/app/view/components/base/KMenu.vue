@@ -11,7 +11,7 @@
               <span class="kcp_menu_icon">       
                 <i class="ks kcp-home"> </i>
               </span>                 
-              <span>首页</span>
+              <span>设备总览</span>
               <i class=" icon-arrow-right13  kcp_menu_content r pr10" v-show="$route.name==='bkhome'"></i>              
           </li>
     </ul>  

@@ -11,16 +11,16 @@ export default  [
       // },
 
       {
-        name: '智能终端管理', icon: 'icon', menu_link: '',
+        name: '智能设备管理', icon: 'icon', menu_link: '',
         subMenu: [
-          {name: '电表终端管理', icon: 'icon', link: 'ammeter_list'},
-          {name: '电表无线管理', icon: 'icon', link: 'ammeter_wireless_list'},
+          {name: '电表设备管理', icon: 'icon', link: 'ammeter_list'},
+          {name: '采集终端管理', icon: 'icon', link: 'ammeter_wireless_list'},
         ]
       },
       {
-        name: 'GIS中心', icon: 'icon', menu_link: '',
+        name: '智能设备维护', icon: 'icon', menu_link: '',
         subMenu: [
-          {name: '终端数据维护', icon: 'icon', link: 'gis_ammeter_list'}
+          {name: '智能设备维护', icon: 'icon', link: 'gis_ammeter_list'}
         ]
       },
       {

@@ -3,13 +3,12 @@
          <div class="kcp_header-log">
           <img src="../../../../assets/image/logo.png" >
 
-          <b>十钉物联网</b>
-          <span class="line"></span>
-          <b>智能终端管理平台</b>
+          
+          <b>智能设备管理平台</b>
          </div> 
          <div  class="kcp_header-user" @click='show=!show' v-ks_click_outside="show=false">
            <img src="http://up.qqjia.com/z/01/tu3945_9.jpg" >     
-           <b>Admin</b>
+           <b>管理员</b>
          </div>
          <ul class="kcp_header_basic" v-show='show'>
            <li @click="gout()">

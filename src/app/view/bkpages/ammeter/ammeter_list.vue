@@ -1,12 +1,12 @@
 <template>
 	<div >
 		<div class="kcp_router_title">
-			电表终端管理
+			电表设备管理
 		</div>
 		<div class="kcp_market_search">
 			<!-- <input type="text" class="kcp_text w260" placeholder="请输入表号" v-model="queryData.meterNo"> -->
-			<input type="text" class="kcp_text w260" placeholder="请输入imsi" v-model="queryData.imsi">
-			<input type="text" class="kcp_text w260" placeholder="请输入通讯地址" v-model="queryData.address">
+			<input type="text" class="kcp_text w260" placeholder="请输入设备名称" v-model="queryData.name">
+			<input type="text" class="kcp_text w260" placeholder="请输入安装人员" v-model="queryData.installer">
 
 			<button class="kcp_nbtn w54 ml10" @click="search">查询</button>
 		</div>
@@ -14,31 +14,24 @@
 			<div class="kcp_table-lister">
 				<table>
 					<tr class="header">
-						<th>通信模块imsi</th>
-						<th>表号</th>
-						<th>资产管理编码</th>
-						<th>电表型号</th>
-						<th>生产日期</th>	
-						<th>协议版本号</th>	
-						<th>状态</th>
+						<th>设备编号</th>
+						<th>设备名称</th>
+						<th>安装人员</th>
+						<th>安装时间</th>
+						<th>位置信息</th>	
+						<th>位置备注</th>	
+						<th>在线状态</th>
 						<th>操作</th>
 					</tr>
 					<tr v-for="a in ammeterList">
-						<td>{{a.imsi}}</td>
-						<td>{{a.meterNo}}</td>
-						<td>{{a.assManageCode}}</td>
-						<td>{{a.type}}</td>
-						<td>{{a.productDate | todate}}</td>
-						<td>{{a.protocolNo}}</td>
+						<td>{{a.id}}</td>
+						<td>{{a.name}}</td>
+						<td>{{a.installer}}</td>
+						<td>{{a.createDate}}</td>
+						<td>{{a.gisAmap}}</td>
+						<td>{{a.remark}}</td>
+						<td>{{a.onlineStatus}}</td>
 						<td>
-							<template v-if="a.status==1">拉闸</template>
-							<template v-if="a.status==2"><i class="ks kcp-success"></i>合闸</template>
-							<template v-if="a.status==3">拉闸进行中...</template>
-							<template v-if="a.status==4">合闸进行中...</template>
-						</td>
-						<td>
-							<a class="mr10"  v-if="a.status==2" @click="tOFF(a.id,1)">拉闸</a>
-							<a class="mr10"  v-if="a.status==1" @click="tON(a.id,2)">合闸</a>
 							<a @click="getInfo(a.imsi)">查看详情</a>
 						</td>
 					</tr>
@@ -67,9 +60,8 @@
 				show1:false,
 				pageGroupVal:1,
 				queryData:{
-					meterNo:'',
-					imsi:'',
-					address:'',
+					name:'',
+					installer:'',
 					pageIndex:1,
 					pageSize:10,
 				},
