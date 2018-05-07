@@ -12,10 +12,17 @@ export default {
 	get_position_list:{save:'/position/list'},
 	// 新增 gis
 	add_position:{save:'/position/create'},
+	//修改gis
+	update_position:{save:'/position/update'},
 	// gis 详情
 	get_position_info:{get:'/position/ammeterPositionInfo/{positionId}/{sn}'},
 
 	// 设备总览
-	get_position_all:{save: '/position/gisList'}
+	get_position_all:{save: '/position/gisList'},
+
+
+	get_warning_list:{save: '/warning/list'},
+
+	avoid_warning:{get: '/warning/avoid/{warningId}/{sn}'},
 
 }

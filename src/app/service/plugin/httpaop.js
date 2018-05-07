@@ -45,6 +45,10 @@ export default function install(Vue){
                             if(body.code == 10000||body.code > 100000){
                                 cache.key && (cache.val || Service.session.set(cache.key,res))
                                 resolvecb && resolvecb(body)
+                            } else if(body.code === 50000) {
+                                $KsDialog.warning(body.message, () => {
+                                    Service.router.go({name:'login'})
+                                })
                             }else{
                                 $KsDialog.warning(body.message)
                                 rejectcb && rejectcb(body)

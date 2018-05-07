@@ -24,6 +24,14 @@ export default  [
         ]
       },
       {
+        name: '告警管理', icon: 'icon', menu_link: '',
+        subMenu: [
+          {name: '告警总览', icon: 'icon', link: 'warning_list'},
+          {name: '当前告警', icon: 'icon', link: 'warning_current'},
+          {name: '历史总览', icon: 'icon', link: 'warning_history'}
+        ]
+      },
+      {
         name: '系统设置', icon: 'icon', menu_link: '',
         subMenu: [
           {name: '角色管理', icon: 'icon', link: ''},

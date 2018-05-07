@@ -1,7 +1,7 @@
 <template>
 	<div >
 		<div class="kcp_router_title">
-			电表终端管理
+			智能设备维护
 		</div>
 		<div class="kcp_market_search">
 			<!-- <input type="text" class="kcp_text w260" placeholder="请输入表号" v-model="queryData.meterNo"> -->
@@ -34,7 +34,12 @@
 						<td>{{'(' +p.amapLongitude +','+p.amapLatitude+ ')'}}</td>
 						<td>{{p.remark}}</td>
 						<td>{{p.statusName}}</td>
-						<td><a @click="getInfo(p.id)">查看详情</a></td>
+						<td>
+							<a @click="getInfo(p.id)">定位信息</a>&nbsp;
+							<a @click='edit(p.id)'>修改</a>&nbsp;
+							<a @click='config(p.id)'>配置</a>&nbsp;
+							<a @click='warning(p.deviceId)'>告警</a>
+						</td>
 					</tr>
 				</table>
 				<div class="kcp_table-pages">
@@ -71,7 +76,16 @@
 		methods:{
 
 			add:function(){
-				this.$router.go({name:'edit_position'})
+				this.$router.go({name:'add_position'})
+			},
+			edit:function(i){
+				this.$router.go({name:'edit_position',query:{id:i}})
+			},
+			config:function(i){
+				this.$router.go({name:'config_position',query:{id:i}})
+			},
+			warning:function(i){
+				this.$router.go({name:'position_warning_list',query:{id:i}})
 			},
 			search:function(){
 				this.queryData.pageIndex=1;

@@ -1,7 +1,7 @@
 <template>
 	<div class="kcp_info">
 		<div class="kcp_router_title mb20">
-			修改信息
+			新增
 		</div>
 
 		<div class="base-box">
@@ -9,7 +9,7 @@
 				IMEI
 			</div>
 			<div class="form-container ">
-				<input type="text" class="kcp_text " disabled="true"  v-model="position.imei"/>
+				<input type="text" class="kcp_text "  v-model="position.imei"/>
 			</div>
 			<div class="form-column">
 				电表编号
@@ -78,7 +78,7 @@
 		</div>
 
 		<div class="base-box form tc">
-			<button  @click="saveOrUpdate()" class="kcp_nbtn w120 mt20 mr10">保存</button>
+			<button  @click="save()" class="kcp_nbtn w120 mt20 mr10">保存</button>
 
 			<button  @click="back()" class="kcp_lbtn w120 mt20 mr10">返回</button>
 		</div>
@@ -87,48 +87,41 @@
 <script>
 	
 	export default{
-		vuem:['ammeter.get_position_info','ammeter.update_position'],
+		vuem:['ammeter.add_position'],
 		data(){
 			return{
-				id:'',
-				// position:{
-				// 	imei:'',
-				// 	address:'', // (string, optional): 电表地址 ,
-				// 	amapLatitude:'', // (string, optional): 高德纬度 ,
-				// 	amapLongitude:'', // (string, optional): 高德经度 ,
-				// 	gpsLatitude:'', // (string, optional): GPS纬度 ,
-				// 	gpsLongitude:'', // (string, optional): GPS经度 ,
-				// 	id:'', // (integer, optional): 位置信息Id,创建时不需要传! ,
-				// 	name:'', // (string, optional): 电表名称 ,
-				// 	number:'', // (string, optional): 电表编号 ,
-				// 	remark:'', // (string, optional): 备注 ,
-				// 	status:'', // (integer, optional): 状态,创建时可不传!默认为0	
-				// },
-				position:{}
+				position:{
+					imei:'',
+					installer:'',// 安装人员
+					address:'', // (string, optional): 电表地址 ,
+					amapLatitude:'', // (string, optional): 高德纬度 ,
+					amapLongitude:'', // (string, optional): 高德经度 ,
+					gpsLatitude:'', // (string, optional): GPS纬度 ,
+					gpsLongitude:'', // (string, optional): GPS经度 ,
+					id:'', // (integer, optional): 位置信息Id,创建时不需要传! ,
+					name:'', // (string, optional): 电表名称 ,
+					number:'', // (string, optional): 电表编号 ,
+					remark:'', // (string, optional): 备注 ,
+					status:'', // (integer, optional): 状态,创建时可不传!默认为0	
+				},
 			}
 		},
 		methods:{
-			back:function(){
-				window.history.back();
-			},
-			saveOrUpdate:function(){
-				this.$m.ammeter.update_position(this.position).then(res => {
-					if(response.code==10000){
+			save:function(){
+				console.log(this.position)
+				this.$m.ammeter.add_position(this.position).then(response=> {
+		         	 if(response.code==10000){
 		         	 	 $KsDialog.success('保存成功!');
 		         	 	 window.history.back();
 		         	 }
-				})
+		        },response=>{ console.log(response.data);} )
 			},
-			getPositionInfo:function(id){
-	          this.$m.ammeter.get_position_info({positionId:id,sn:'position'}).then(res => {
-	            if (res.code === 10000) {
-	              this.position = res.data
-	            }
-	          })
-	        }
+			back:function(){
+				window.history.back();
+			}
 		},
 		ready(){
-      		this.getPositionInfo(this.$route.query.id)
+			
 		},
 	}
 </script>
@@ -141,7 +134,7 @@
 	}
 
 	.form-container textarea{
-		width: 620px;
+		width: 530px;
 		height: 110px;
 		outline: none;
 		resize: none;

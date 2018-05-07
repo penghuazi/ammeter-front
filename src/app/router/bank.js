@@ -1,5 +1,3 @@
-
-
 export default {
         component: function(resolve){
             require(['../view/bkpages/index.vue'],resolve)
@@ -57,11 +55,32 @@ export default {
                 }
             },
              ////////////无线终端详情///////////////////////////////////////////
+             'add_position':{
+                name:'add_position',
+                title:'新增',
+                component: function(resolve){
+                    require(['../view/bkpages/gis/add_position.vue'],resolve)
+                }
+            },
             'edit_position':{
                 name:'edit_position',
-                title:'电表终端详情',
+                title:'修改',
                 component: function(resolve){
                     require(['../view/bkpages/gis/edit_position.vue'],resolve)
+                }
+            },
+            'config_position':{
+                name:'config_position',
+                title:'配置',
+                component: function(resolve){
+                    require(['../view/bkpages/gis/config_position.vue'],resolve)
+                }
+            },
+            'position_warning_list':{
+                name:'position_warning_list',
+                title:'配置',
+                component: function(resolve){
+                    require(['../view/bkpages/gis/position_warning_list.vue'],resolve)
                 }
             },
             'gis_info_map':{
@@ -70,6 +89,31 @@ export default {
                 component: function(resolve){
                     require(['../view/bkpages/gis/gis_info_map.vue'],resolve)
                 }
-            },                                      
+            }, 
+            ///////////////////////告警管理/////////////////////////////////////
+            'warning_list':{
+                name:'warning_list',
+                title:'电表终端详情',
+                component: function(resolve){
+                    require(['../view/bkpages/warning/warning_list.vue'],resolve)
+                }
+            }, 
+            'warning_history':{
+                name:'warning_history',
+                title:'电表终端详情',
+                component: function(resolve){
+                    require(['../view/bkpages/warning/warning_history.vue'],resolve)
+                }
+            }, 
+            'warning_current':{
+                name:'warning_current',
+                title:'电表终端详情',
+                component: function(resolve){
+                    require(['../view/bkpages/warning/warning_current.vue'],resolve)
+                }
+            }, 
+
+
+
         }
     }
