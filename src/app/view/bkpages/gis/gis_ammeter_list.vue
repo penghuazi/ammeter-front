@@ -23,6 +23,8 @@
 						<th>位置信息</th>
 						<th>位置备注</th>
 						<th>在线状态</th>
+						<th>工作状态</th>
+
 						<th>操作</th>
 					</tr>
 					<tr v-for="p in positionList">
@@ -35,10 +37,17 @@
 						<td>{{p.remark}}</td>
 						<td>{{p.statusName}}</td>
 						<td>
+							<template v-if="p.workStatus==1">拉闸</template>
+							<template v-if="p.workStatus==2"><i class="ks kcp-success"></i>合闸</template>
+							<template v-if="p.workStatus==3">拉闸进行中...</template>
+							<template v-if="p.workStatus==4">合闸进行中...</template>
+						</td>
+						<td>
+							<a class="mr10"  v-if="p.workStatus==2" @click="tOFF(p.id,1)">拉闸</a>
+							<a class="mr10"  v-if="p.workStatus==1" @click="tON(p.id,2)">合闸</a>
 							<a @click="getInfo(p.id)">定位信息</a>&nbsp;
-							<a @click='edit(p.id)'>修改</a>&nbsp;
-							<a @click='config(p.id)'>配置</a>&nbsp;
-							<a @click='warning(p.deviceId)'>告警</a>
+							<a @click='edit(p.id)'>修改</a>
+
 						</td>
 					</tr>
 				</table>
@@ -59,10 +68,14 @@
 <script>
 	
 	export default{
-		vuem:['ammeter.get_position_list'],
+		vuem:['ammeter.get_position_list','ammeter.update_position_status'],
 		data(){
 			return{
 				pageGroupVal:1,
+				p:{
+					positionId:'',
+					status:''
+				},
 				queryData:{
 					name:'', //  (string, optional): 电表名称 ,
 					imei:'', //  (string, optional): 电表编号 ,
@@ -75,18 +88,14 @@
 		},
 		methods:{
 
+			edit:function(i){
+				this.$router.go({name:'edit',query:{id:i}})
+			},
+
 			add:function(){
 				this.$router.go({name:'add_position'})
 			},
-			edit:function(i){
-				this.$router.go({name:'edit_position',query:{id:i}})
-			},
-			config:function(i){
-				this.$router.go({name:'config_position',query:{id:i}})
-			},
-			warning:function(i){
-				this.$router.go({name:'position_warning_list',query:{id:i}})
-			},
+			
 			search:function(){
 				this.queryData.pageIndex=1;
 				this.getPositionList();
@@ -104,7 +113,31 @@
 			
 			getInfo:function(i){
 				this.$router.go({name:'gis_info_map',query:{id:i}});
-			}
+			},
+
+			//拉闸
+			tOFF:function(i,s){
+				$KsModal.confirm({title:'系统提示',message:'确认执行拉闸操作吗？'},()=>{
+					 this.action(i,s);
+				})
+			},
+			//合闸
+			tON:function(i,s){
+				let _this=this;
+				$KsModal.confirm({title:'系统提示',message:'确认执行合闸操作吗？'},()=>{
+					 this.action(i,s);
+				})
+			},
+			action:function(i,s){
+				this.p.positionId=i;
+				this.p.status=s;	
+				this.$m.ammeter.update_position_status(this.p).then(response=> {
+		         	 if(response.code==10000){
+		         	 	 $KsDialog.success('操作成功!');
+		         	 	 this.getPositionList();
+		         	 }
+		        },response=>{ console.log(response.data);} )
+			},
 		},
 		ready(){
 			this.getPositionList();

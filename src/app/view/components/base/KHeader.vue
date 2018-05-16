@@ -7,8 +7,10 @@
           <b>智能设备管理平台</b>
          </div> 
          <div  class="kcp_header-user" @click='show=!show' v-ks_click_outside="show=false">
-           <img src="http://up.qqjia.com/z/01/tu3945_9.jpg" >     
-           <b>管理员</b>
+          <div @click="gout('login')">
+            <i class="ks kcp-exit"></i>
+            <span>退出系统</span>
+          </div>
          </div>
          <ul class="kcp_header_basic" v-show='show'>
            <li @click="gout()">

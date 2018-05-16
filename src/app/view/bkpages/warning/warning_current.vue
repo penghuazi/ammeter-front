@@ -74,7 +74,7 @@
 				this.$m.ammeter.avoid_warning({warningId:id,sn:'position'}).then(res =>{
 					if (res.code === 10000) {
 		              $KsDialog.success('消除成功!');
-		              this.getWarningInfo(this.id)
+		              this.getWarningList()
 		            }
 				})
 			},
@@ -82,6 +82,7 @@
 	          this.$m.ammeter.get_warning_list(this.queryData).then(res => {
 	            if (res.code === 10000) {
 	              this.warningList = res.data
+	              this.total=res.total
 	            }
 	          })
 	        }

@@ -31,11 +31,19 @@ export default {
             },
             
              ////////////电表终端详情///////////////////////////////////////////
+             
             'ammeter_info':{
                 name:'ammeter_info',
                 title:'电表终端详情',
                 component: function(resolve){
                     require(['../view/bkpages/ammeter/ammeter_info.vue'],resolve)
+                }
+            },
+            'report_info':{
+                name:'report_info',
+                title:'电表终端详情',
+                component: function(resolve){
+                    require(['../view/bkpages/ammeter/report_info.vue'],resolve)
                 }
             },
              ////////////无线终端详情///////////////////////////////////////////
@@ -91,13 +99,20 @@ export default {
                 }
             }, 
             ///////////////////////告警管理/////////////////////////////////////
+            'warning_report':{
+                name:'warning_report',
+                title:'电表终端详情',
+                component: function(resolve){
+                    require(['../view/bkpages/warning/warning_report.vue'],resolve)
+                }
+            }, 
             'warning_list':{
                 name:'warning_list',
                 title:'电表终端详情',
                 component: function(resolve){
                     require(['../view/bkpages/warning/warning_list.vue'],resolve)
                 }
-            }, 
+            },
             'warning_history':{
                 name:'warning_history',
                 title:'电表终端详情',
@@ -110,6 +125,18 @@ export default {
                 title:'电表终端详情',
                 component: function(resolve){
                     require(['../view/bkpages/warning/warning_current.vue'],resolve)
+                }
+            }, 
+
+
+
+
+            
+            'edit':{
+                name:'edit',
+                title:'edit',
+                component: function(resolve){
+                    require(['../view/bkpages/gis/edit.vue'],resolve)
                 }
             }, 
 

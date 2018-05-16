@@ -1,7 +1,7 @@
 <template>
 	<div class="ammeter-info">
 		<div class="kcp_router_title">
-			电表终端详情&nbsp;&nbsp;&nbsp;&nbsp;【imsi:&nbsp;&nbsp;{{imsi}}】
+			电表终端详情&nbsp;&nbsp;&nbsp;&nbsp;【设备名称:&nbsp;&nbsp;{{name}}】
 		</div>
 
 
@@ -24,21 +24,17 @@
     		    </ks-date-month>
 			</div>
 		</div> -->
-		<div class="kcp_router_title"></div>
-		<div class="base-box tc">
-			<button  @click="back()" class="kcp_lbtn w120 mt20 mr10">返回</button>
-		</div>
-
-		
+	
 	</div>
 </template>
 <script>
 	var echarts = require('echarts');
 	export default{
-		vuem:['ammeter.get_ammeter_list','ammeter.update_status','ammeter.dailyReport'],
+		vuem:['ammeter.get_ammeter_list','ammeter.update_status','ammeter.get_u_report'],
 		data(){
 			return{
 				imsi:'',
+				name: '',
 				toDay: new Date().toJSON().slice(0,10),
 				toMonth:new Date().getMonth()+1,
 				ammeter:{},
@@ -49,10 +45,7 @@
 	            	},
 		            tooltip : {
 		                trigger: 'axis',
-		                textStyle:{color:'red'},    
-		                formatter:function(){
-		                    return 'loading';
-		                }
+		                textStyle:{color:'#fff'}
 		            },
 		            legend: {
 		                orient:'vertical',
@@ -74,32 +67,12 @@
 		                {
 		                    type : 'value',
 		                    axisLabel : {
-		                        formatter: '{value} kW/h'
+		                        formatter: '{value} V/h'
 		                    }
 		                }
 		            ],
 		            series : [
-		                // {
-		                //     name:'领取量',
-		                //     type:'line',
-		                //     symbol:'line',
-		                //     itemStyle:{
-		                //             normal:{
-		                //                 lineStyle:{
-		                //                     color:'blue',
-		                //                     type:'dashed'
-		                //                 }
-		                //             }                            
-		                            
-		                //     },                    
-		                //     data:[11, 11, 15, 13, 12, 13, 10],
-		                //     // markPoint : {
-		                //     //     data : [
-		                //     //         {type : 'max', name: '最大值'},
-		                //     //         {type : 'min', name: '最小值'}
-		                //     //     ]
-		                //     // }                                    
-		                // },
+		                
 		                {
 		                    name:'使用量',
 		                    type:'line',
@@ -108,12 +81,6 @@
 		                    	
 		                    ],
 		                    
-		                    // markPoint : {
-		                    //     data : [
-		                    //         {name : '周最低', value : -2, xAxis: 1, yAxis: 0},
-		                    //         {name : '周最低', value : -2, xAxis: 3, yAxis: 5}
-		                    //     ]
-		                    // }
 		                }                
 		            ]
 		        },
@@ -133,7 +100,7 @@
 		        },response=>{ console.log(response.data);} )
 			},
 			getReport:function(id){
-				this.$m.ammeter.dailyReport({ammeterId:id,reportDate:this.toDay}).then(res=>{
+				this.$m.ammeter.get_u_report({ammeterId:id,reportDate:this.toDay}).then(res=>{
 					if (res.code==10000) {
 						console.log(this.report_data.series);
 						console.log('报表数据',res.data);
@@ -156,6 +123,7 @@
 		},
 		ready(){
 			this.imsi=this.$route.query.imsi;
+			this.name=this.$route.query.name;
 			this.getReport(this.$route.query.imsi);
 			this.getAmmeterList({imsi:this.$route.query.imsi});
 			

@@ -5,13 +5,15 @@ import KsSwitch from 'KsComponents/KsSwitch/index.js'
 import KsCheckbox from 'KsComponents/KsCheckbox/index.js'
 import KsCheckboxGroup from 'KsComponents/KsCheckboxGroup/index.js'
 import KsRadio from 'KsComponents/KsRadio/index.1.0.0.js'
+import KsIcon from 'KsComponents/KsIcon/index.1.0.0.js'
 
 import modal_center from './ModalCenter.vue'
 import bar from './bar.vue'
 import ordernumber from './orderNumber.vue'
+import tab_line from './TabLine.vue'
 
 const compontent={
-	modal_center,KsDatePicker,KsDateMonth,KsPageGroup,KsSwitch,KsCheckbox,KsCheckboxGroup,KsRadio,bar,ordernumber
+	tab_line,modal_center,KsIcon,KsDatePicker,KsDateMonth,KsPageGroup,KsSwitch,KsCheckbox,KsCheckboxGroup,KsRadio,bar,ordernumber
 }
 	
 
@@ -19,6 +21,7 @@ const compontent={
 import loading from './loading'
 import dialog from './dialog'
 import KsModal from './KsModal'
+
 const Plugins = {
   loading,dialog,KsModal
 };

@@ -21,7 +21,6 @@
 						<th>告警日期</th>
 						<th>告警状态</th>		
 						<th>告警类别</th>
-						<th>操作</th>
 					</tr>
 					<tr v-for="w in warningList">
 						<td>{{w.id}}</td>
@@ -30,7 +29,6 @@
 						<td>{{w.warningDate}}</td>
 						<td>{{w.statusName}}</td>
 						<td>{{w.warningDesc}}</td>
-						<td><a v-if="w.warningStatus==0" @click="avoid(w.warningId)">消除告警</a></td>
 					</tr>
 				</table>
 				<div class="kcp_table-pages">
@@ -82,6 +80,7 @@
 	          this.$m.ammeter.get_warning_list(this.queryData).then(res => {
 	            if (res.code === 10000) {
 	              this.warningList = res.data
+	              this.total=res.total
 	            }
 	          })
 	        }

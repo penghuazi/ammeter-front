@@ -1,7 +1,7 @@
 <template>
 	<div >
 		<div class="kcp_router_title">
-			电表设备管理
+			电表终端管理
 		</div>
 		<div class="kcp_market_search">
 			<!-- <input type="text" class="kcp_text w260" placeholder="请输入表号" v-model="queryData.meterNo"> -->
@@ -32,7 +32,7 @@
 						<td>{{a.remark}}</td>
 						<td>{{a.onlineStatus}}</td>
 						<td>
-							<a @click="getInfo(a.imsi)">查看详情</a>
+							<a @click="report(a)">查看详情</a>
 						</td>
 					</tr>
 				</table>
@@ -119,6 +119,10 @@
 		         	 	 this.getAmmeterList();
 		         	 }
 		        },response=>{ console.log(response.data);} )
+			},
+
+			report:function(obj){
+				this.$router.go({name:'report_info',query:{imsi:obj.imsi, name:obj.name}});
 			},
 			getInfo:function(i){
 				this.$router.go({name:'ammeter_info',query:{imsi:i}});

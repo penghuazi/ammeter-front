@@ -1,9 +1,5 @@
 <template>
 	<div class="kcp_info">
-		<div class="kcp_router_title mb20">
-			告警信息
-			<button  @click="back()" class="kcp_lbtn w54 mt20 mr10 r" style="font: 400 11px system-ui">返回</button>
-		</div>
 		<div class="kcp_market_table">
 		<div class="kcp_table-lister">
 			<table>
@@ -46,10 +42,8 @@
 		data(){
 			return{
 				id:'',
-				pageGroupVal:1,
 				queryData:{
-					name:'', //  (string, optional): 电表名称 ,
-					imei:'', //  (string, optional): 电表编号 ,
+					positionId:'',
 					pageIndex:1,
 					pageSize:10,
 				},
@@ -69,17 +63,18 @@
 		            }
 				})
 			},
-			getWarningInfo:function(id){
-	          this.$m.ammeter.get_warning_list({deviceId:id,sn:'position'}).then(res => {
+			getWarningInfo:function(){
+	          this.$m.ammeter.get_warning_list(this.queryData).then(res => {
 	            if (res.code === 10000) {
 	              this.warningList = res.data
+	              this.total=res.total
 	            }
 	          })
 	        }
 		},
 		ready(){
-			this.id = this.$route.query.id
-      		this.getWarningInfo(this.$route.query.id)
+			this.queryData.positionId = this.$route.query.id
+      		this.getWarningInfo()
 		},
 	}
 </script>

@@ -10,7 +10,7 @@
                     </div>
                     <div class="row">
                         <div class="col cp tc">
-                            <h2>十&nbsp;钉&nbsp;物&nbsp;联</h2>
+                            <b>十&nbsp;钉&nbsp;物&nbsp;联</b>
                         </div>
                     </div>
                      
@@ -114,14 +114,14 @@
     }
 </script>
 <style>
-   /* .col{
+  /*   .col{
         border: 1px solid red;
-    }*/
-   /* .cp{
+    } */
+    .cp{
         color: rgba(39, 41, 43, 0.8);
-        font-size: 36px;
+        font-size: 30px;
         font-family: "黑体";
-    }*/
+    }
     .br1s{
         border-right: 1px solid #ccc;
     }

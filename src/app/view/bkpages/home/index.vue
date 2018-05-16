@@ -92,10 +92,20 @@
                     return new SimpleMarker({
                         containerClassNames: 'my-marker',
                         iconStyle: 'red',
+                        iconStyle: {
+
+                            src: './db.png',
+                            style: {
+                                width: '38px',
+                                height: '38px'
+                            }
+                        },
+                        //设置基点偏移
+                        offset: new AMap.Pixel(-10, -60),
                         //设置节点属性
                         iconLabel: {
                             //普通文本
-                            innerHTML: '电',
+                            // innerHTML: '电',
                             //设置样式
                             style: {
                                 color: '#fff',

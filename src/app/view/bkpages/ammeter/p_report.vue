@@ -1,7 +1,7 @@
 <template>
 	<div class="ammeter-info">
 		<div class="kcp_router_title">
-			电表终端详情&nbsp;&nbsp;&nbsp;&nbsp;【imsi:&nbsp;&nbsp;{{imsi}}】
+			电表终端详情&nbsp;&nbsp;&nbsp;&nbsp;【设备名称:&nbsp;&nbsp;{{name}}】
 		</div>
 
 
@@ -24,47 +24,42 @@
     		    </ks-date-month>
 			</div>
 		</div> -->
-		<div class="kcp_router_title"></div>
-		<div class="base-box tc">
-			<button  @click="back()" class="kcp_lbtn w120 mt20 mr10">返回</button>
-		</div>
-
-		
+	
 	</div>
 </template>
 <script>
 	var echarts = require('echarts');
 	export default{
-		vuem:['ammeter.get_ammeter_list','ammeter.update_status','ammeter.dailyReport'],
+		vuem:['ammeter.get_ammeter_list','ammeter.update_status','ammeter.get_p_report'],
 		data(){
 			return{
 				imsi:'',
+				name: '',
 				toDay: new Date().toJSON().slice(0,10),
 				toMonth:new Date().getMonth()+1,
 				ammeter:{},
-				xAxis_data:[],
+				xAxis_data:[
+
+				],
 				report_data:{
 	            	title : {
-	                // text: '未来一周气温变化'
+	                	// text: '电量信息'
 	            	},
 		            tooltip : {
 		                trigger: 'axis',
-		                textStyle:{color:'red'},    
-		                formatter:function(){
-		                    return 'loading';
-		                }
+		                textStyle:{color:'#fff'}
 		            },
 		            legend: {
 		                orient:'vertical',
 		                x:'left',
-		                data:['领取量','使用量']
+		                data:['用电量']
 		            },
 	            	calculable : true,
 		            xAxis : [
 		                {
 		                    type : 'category',
 		                    boundaryGap : false,
-		                    data : ['0h \n 9-17','1h','2h','3h','4h','5h','6h','7h','8h','9h','10h','11h','12h'
+		                    data : ['0h','1h','2h','3h','4h','5h','6h','7h','8h','9h','10h','11h','12h'
 		                    		,'13h','14h','15h','16h','17h','18h'
 		                    		,'19h','20h','21h','22h','23h'
 		                    ]
@@ -79,41 +74,14 @@
 		                }
 		            ],
 		            series : [
-		                // {
-		                //     name:'领取量',
-		                //     type:'line',
-		                //     symbol:'line',
-		                //     itemStyle:{
-		                //             normal:{
-		                //                 lineStyle:{
-		                //                     color:'blue',
-		                //                     type:'dashed'
-		                //                 }
-		                //             }                            
-		                            
-		                //     },                    
-		                //     data:[11, 11, 15, 13, 12, 13, 10],
-		                //     // markPoint : {
-		                //     //     data : [
-		                //     //         {type : 'max', name: '最大值'},
-		                //     //         {type : 'min', name: '最小值'}
-		                //     //     ]
-		                //     // }                                    
-		                // },
+		                
 		                {
-		                    name:'使用量',
+		                    name:'用电量',
 		                    type:'line',
 		                    data:[
 
 		                    	
 		                    ],
-		                    
-		                    // markPoint : {
-		                    //     data : [
-		                    //         {name : '周最低', value : -2, xAxis: 1, yAxis: 0},
-		                    //         {name : '周最低', value : -2, xAxis: 3, yAxis: 5}
-		                    //     ]
-		                    // }
 		                }                
 		            ]
 		        },
@@ -121,19 +89,8 @@
 		},
 		methods:{
 
-
-			
-			//获取电表数据列表
-			getAmmeterList:function(data) {
-				//请求api
-	    		this.$m.ammeter.get_ammeter_list(data).then(response=> {
-		         	 if(response.code==10000){
-		         	 	 this.ammeter=response.data[0];
-		         	 }
-		        },response=>{ console.log(response.data);} )
-			},
 			getReport:function(id){
-				this.$m.ammeter.dailyReport({ammeterId:id,reportDate:this.toDay}).then(res=>{
+				this.$m.ammeter.get_p_report({ammeterId:id,reportDate:this.toDay}).then(res=>{
 					if (res.code==10000) {
 						console.log(this.report_data.series);
 						console.log('报表数据',res.data);
@@ -156,8 +113,8 @@
 		},
 		ready(){
 			this.imsi=this.$route.query.imsi;
+			this.name=this.$route.query.name;
 			this.getReport(this.$route.query.imsi);
-			this.getAmmeterList({imsi:this.$route.query.imsi});
 			
 			setTimeout(()=>{
 				this.ext(this.report_data);

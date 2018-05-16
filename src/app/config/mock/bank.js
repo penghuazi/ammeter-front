@@ -13,7 +13,7 @@ export default  [
       {
         name: '智能设备管理', icon: 'icon', menu_link: '',
         subMenu: [
-          {name: '电表设备管理', icon: 'icon', link: 'ammeter_list'},
+          {name: '电表终端管理', icon: 'icon', link: 'ammeter_list'},
           {name: '采集终端管理', icon: 'icon', link: 'ammeter_wireless_list'},
         ]
       },
@@ -26,9 +26,17 @@ export default  [
       {
         name: '告警管理', icon: 'icon', menu_link: '',
         subMenu: [
-          {name: '告警总览', icon: 'icon', link: 'warning_list'},
+          {name: '告警总览', icon: 'icon', link: 'warning_report'},
           {name: '当前告警', icon: 'icon', link: 'warning_current'},
           {name: '历史总览', icon: 'icon', link: 'warning_history'}
+        ]
+      },
+      {
+        name: '策略配置', icon: 'icon', menu_link: '',
+        subMenu: [
+          {name: '单设备配置', icon: 'icon', link: ''},
+          {name: '组设备配置', icon: 'icon', link: ''},
+          {name: '全部配置', icon: 'icon', link: ''}
         ]
       },
       {

@@ -6,7 +6,7 @@
 		<div class="kcp_market_search">
 			<!-- <input type="text" class="kcp_text w260" placeholder="请输入表号" v-model="queryData.meterNo"> -->
 			<input type="text" class="kcp_text w260" placeholder="请输入IMEI号" v-model="queryData.imei">
-			<input type="text" class="kcp_text w260" placeholder="请输入名称" v-model="queryData.name">
+			<input type="text" class="kcp_text w260" placeholder="请输入设备名称" v-model="queryData.name">
 
 			<button class="kcp_nbtn w54 ml10" @click="search">查询</button>
 		</div>
@@ -81,6 +81,7 @@
 	          this.$m.ammeter.get_warning_list(this.queryData).then(res => {
 	            if (res.code === 10000) {
 	              this.warningList = res.data
+	              this.total=res.total
 	            }
 	          })
 	        }

@@ -1,8 +1,6 @@
 <template>
 	<div class="kcp_info">
-		<div class="kcp_router_title mb20">
-			修改信息
-		</div>
+		
 
 		<div class="base-box">
 			<div class="form-column">
@@ -34,20 +32,6 @@
 		</div>
 		<div class="base-box form">
 			<div class="form-column">
-				GPS经度
-			</div>
-			<div class="form-container ">
-				<input type="text" class="kcp_text "  v-model="position.gpsLongitude"/>
-			</div>
-			<div class="form-column">
-				GPS纬度
-			</div>
-			<div class="form-container ">
-				<input type="text" class="kcp_text "  v-model="position.gpsLatitude"/>
-			</div>
-		</div>
-		<div class="base-box form">
-			<div class="form-column">
 				高德经度
 			</div>
 			<div class="form-container ">
@@ -73,14 +57,12 @@
 				备注
 			</div>
 			<div class="form-container ">
-				<textarea placeholder="备注最多可以输入200字" maxlength="200" v-model="position.remark"></textarea>
+				<textarea placeholder="备注最多可以输入200字" style="width:530px" maxlength="200" v-model="position.remark"></textarea>
 			</div>
 		</div>
 
 		<div class="base-box form tc">
 			<button  @click="saveOrUpdate()" class="kcp_nbtn w120 mt20 mr10">保存</button>
-
-			<button  @click="back()" class="kcp_lbtn w120 mt20 mr10">返回</button>
 		</div>
 	</div>
 </template>
@@ -91,19 +73,6 @@
 		data(){
 			return{
 				id:'',
-				// position:{
-				// 	imei:'',
-				// 	address:'', // (string, optional): 电表地址 ,
-				// 	amapLatitude:'', // (string, optional): 高德纬度 ,
-				// 	amapLongitude:'', // (string, optional): 高德经度 ,
-				// 	gpsLatitude:'', // (string, optional): GPS纬度 ,
-				// 	gpsLongitude:'', // (string, optional): GPS经度 ,
-				// 	id:'', // (integer, optional): 位置信息Id,创建时不需要传! ,
-				// 	name:'', // (string, optional): 电表名称 ,
-				// 	number:'', // (string, optional): 电表编号 ,
-				// 	remark:'', // (string, optional): 备注 ,
-				// 	status:'', // (integer, optional): 状态,创建时可不传!默认为0	
-				// },
 				position:{}
 			}
 		},
@@ -113,9 +82,8 @@
 			},
 			saveOrUpdate:function(){
 				this.$m.ammeter.update_position(this.position).then(res => {
-					if(response.code==10000){
+					if(res.code==10000){
 		         	 	 $KsDialog.success('保存成功!');
-		         	 	 window.history.back();
 		         	 }
 				})
 			},
