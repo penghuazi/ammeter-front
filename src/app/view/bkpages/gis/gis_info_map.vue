@@ -34,15 +34,26 @@
 
           AMapUI.loadUI(['overlay/AwesomeMarker','overlay/SimpleInfoWindow'],function(AwesomeMarker,SimpleInfoWindow) {
               var marker =new AwesomeMarker({
-              awesomeIcon: 'assistive-listening-systems',
-              iconLabel: {
+              // awesomeIcon: 'assistive-listening-systems',
+
+              iconStyle: 'red',
+              iconStyle: {
+
+                  src: './db.png',
                   style: {
-                      color: '#c7e9c0', //字体颜色
-                      fontSize: 16 + 'px' //字号
+                      width: '38px',
+                      height: '38px'
                   }
               },
-              //图标
-              iconStyle: 'red',
+
+              // iconLabel: {
+              //     style: {
+              //         color: '#c7e9c0', //字体颜色
+              //         fontSize: 16 + 'px' //字号
+              //     }
+              // },
+              // //图标
+              // iconStyle: 'red',
               map: map,
               position: [_this.gis.amapLongitude, _this.gis.amapLatitude]
             })

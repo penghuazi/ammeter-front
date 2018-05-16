@@ -23,7 +23,7 @@
 				<input type="text" class="kcp_text w220"  v-model="position.apnAddress"/>
 			</div>
 			<div class="form-column">
-				<button  @click="saveOrUpdate()" class="kcp_nbtn w120">配置</button>
+				<button  @click="saveOrUpdate1()" class="kcp_nbtn w120">配置</button>
 			</div>
 		</div>
 		<div class="base-box form">
@@ -34,14 +34,14 @@
 				<input type="text" class="kcp_text w220"  v-model="position.nb"/>
 			</div>
 			<div class="form-column">
-				<button  @click="saveOrUpdate()" class="kcp_nbtn w120">配置</button>
+				<button  @click="saveOrUpdate2()" class="kcp_nbtn w120">配置</button>
 			</div>
 			<div class="form-container "></div>
 		</div>
 
 
 
-		<div class="kcp_router_title mb40">
+		<div class="kcp_router_title mb40" style="clear:both ;">
 			设备系统运行设置
 		</div>
 
@@ -107,7 +107,23 @@
 				})
 			},
 			saveOrUpdate:function(){
-				this.$m.ammeter.save_position_config(this.position).then(res => {
+				this.$m.ammeter.save_position_config({positionId:this.id, cdp:this.position.cdp}).then(res => {
+					if(res.code==10000){
+		         		$KsDialog.success('保存成功!');
+		         	 	this.getPositionInfo(this.id)
+		         	 }
+				})
+			},
+			saveOrUpdate1:function(){
+				this.$m.ammeter.save_position_config({positionId:this.id, apnAddress:this.position.apnAddress}).then(res => {
+					if(res.code==10000){
+		         		$KsDialog.success('保存成功!');
+		         	 	this.getPositionInfo(this.id)
+		         	 }
+				})
+			},
+			saveOrUpdate2:function(){
+				this.$m.ammeter.save_position_config({positionId:this.id, nb:this.position.nb}).then(res => {
 					if(res.code==10000){
 		         		$KsDialog.success('保存成功!');
 		         	 	this.getPositionInfo(this.id)

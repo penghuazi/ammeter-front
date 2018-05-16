@@ -4,9 +4,9 @@
 			告警总览
 		</div>
 
-		<div id="main" style="width:100%;height:300px;"></div>
+
 		<ul class="kcp_home_nav">
-            <li @click="$router.go({name:'my_market',query:{status:'2'}})">
+           <li @click="$router.go({name:'my_market',query:{status:'2'}})">
               <ul>
                 <li>{{0}}</li>
                 <li>待审核的方案</li>
@@ -27,9 +27,36 @@
               </ul>
              <i class="ks kcp-ongoing"></i>
            </li>
-	       <li> </li>
+           <li> </li>
       </ul>
-		</div>
+
+
+		<div id="main" style="width:100%;height:300px;"></div>
+
+		<ul class="kcp_home_nav">
+            <li @click="$router.go({name:'my_market',query:{status:'2'}})">
+              <ul>
+                <li>{{res_data.historyWarnings}}</li>
+                <li>历史告警</li>
+              </ul>
+             <i class="ks kcp-check"></i>
+           </li>
+           <li @click="$router.go({name:'my_market',query:{status:'4'}})">
+              <ul>
+                <li>{{res_data.onlineDevices}}</li>
+                <li>在线设备</li>
+              </ul>
+             <i class="ks kcp-wait_time"></i>
+           </li>
+           <li @click="$router.go({name:'my_market',query:{status:'5'}})">
+              <ul>
+                <li>{{res_data.totalDevices}}</li>
+                <li>总设备</li>
+              </ul>
+             <i class="ks kcp-ongoing"></i>
+           </li>
+          
+      	</ul>
 	</div>
 </template>
 <script>
@@ -38,6 +65,7 @@
 		vuem:['ammeter.get_warning_report'],
 		data(){
 			return{
+				res_data:{},
 				report_data:{
 				    title : {
 				        text: '当前告警总览',
@@ -87,6 +115,7 @@
 		    getWarningReport:function(){
 	          this.$m.ammeter.get_warning_report({}).then(res => {
 	            if (res.code === 10000) {
+	            	this.res_data= res.data
 	            	this.report_data.series[0].data[0].value = res.data.warningCategories.warningOfflineDevices
 	            	this.report_data.series[0].data[1].value=res.data.warningCategories.warningRsrqDevices
 	            	this.report_data.series[0].data[2].value=res.data.warningCategories.normalDevices
