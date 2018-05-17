@@ -1,2 +1,78 @@
 @import './bkpages/index';
 @import './home';
+
+
+.kcp_login{
+	height: 100%;
+	background-color:$mune-color;
+	position: relative;
+	&-bg{
+		width: 1920px;
+		height: 432px;
+		opacity: 0.3;
+		position: absolute;
+		top: 15%;		
+	}
+	&-content{
+		width: 640px;
+		height: 432px;
+		position: absolute;
+		top: 15%;
+		left:16.6%;
+		padding: 0 12px;
+		box-sizing:border-box;
+		&-top{
+				height: 120px;
+				border-bottom:1px dashed #c7c7c7;
+					.text{
+						width: 388px;
+						.logimg{
+							width: 188px;
+						}
+					}
+					.line{
+						padding:0 24px;
+						width: 1px;
+						span{
+							border-left:1px solid #c7c7c7;
+							height: 20px;
+							display: inline-block;	
+						}
+					}
+					b{
+						color:$mune-color;
+						font-family: $Semiboldfamily;
+					}								
+			}
+		&-center{
+			.text{
+				width: 388px;
+				input{
+					width: 100%;
+				}
+				.kcppassword{
+					color:$mune-color;
+					}
+			}
+			.select{
+				border:1px solid #eee; 
+				cursor:pointer;
+				li:hover{
+					background-color: #eee;
+				}
+			}
+		}
+		&-foot{
+			position: absolute;
+			bottom: 0;
+			height: 44px;
+			width: 100%;
+			margin-left:-12px;
+			color:$mune-color;
+		}
+	}	
+}
+
+
+
+

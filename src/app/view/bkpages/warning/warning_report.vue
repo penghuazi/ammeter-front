@@ -4,33 +4,6 @@
 			告警总览
 		</div>
 
-
-		<ul class="kcp_home_nav">
-           <li @click="$router.go({name:'my_market',query:{status:'2'}})">
-              <ul>
-                <li>{{0}}</li>
-                <li>待审核的方案</li>
-              </ul>
-             <i class="ks kcp-check"></i>
-           </li>
-           <li @click="$router.go({name:'my_market',query:{status:'4'}})">
-              <ul>
-                <li>{{0}}</li>
-                <li>未开始的方案</li>
-              </ul>
-             <i class="ks kcp-wait_time"></i>
-           </li>
-           <li @click="$router.go({name:'my_market',query:{status:'5'}})">
-              <ul>
-                <li>{{0}}</li>
-                <li>进行中的方案</li>
-              </ul>
-             <i class="ks kcp-ongoing"></i>
-           </li>
-           <li> </li>
-      </ul>
-
-
 		<div id="main" style="width:100%;height:300px;"></div>
 
 		<ul class="kcp_home_nav">
@@ -55,7 +28,7 @@
               </ul>
              <i class="ks kcp-ongoing"></i>
            </li>
-          
+           <li></li>
       	</ul>
 	</div>
 </template>
