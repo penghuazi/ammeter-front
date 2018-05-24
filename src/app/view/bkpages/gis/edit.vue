@@ -12,6 +12,7 @@
 	</div>
 </template>
 <script>
+	import gisInfoMap from './gis_info_map.vue'
 	import editPosition from './edit_position.vue'
 	import configPosition from './config_position.vue'
 	import positionWarning from './position_warning_list.vue'
@@ -19,6 +20,10 @@
 		data(){
 			return{
 				list:[
+					{
+						name:'定位信息',
+						value:'gisInfoMap'
+					},
 					{
 						name:'基本信息',
 						value:'editPosition'
@@ -32,8 +37,8 @@
 						value:'positionWarning'
 					}
 				],
-				key:'基本信息',
-				currentTabComponent:'editPosition'
+				key:'定位信息',
+				currentTabComponent:'gisInfoMap'
 			}
 		},
 		methods:{
@@ -48,7 +53,7 @@
 			}
 		},
 		components:{
-			editPosition,configPosition,positionWarning
+			gisInfoMap,editPosition,configPosition,positionWarning
 		},
 		ready:function(){
 

@@ -4,13 +4,13 @@
 			告警总览
 		</div>
 
-		<div id="main" style="width:100%;height:300px;"></div>
+		<div id="main" style="width:70%;height:300px;"></div>
 
 		<ul class="kcp_home_nav">
             <li @click="$router.go({name:'my_market',query:{status:'2'}})">
               <ul>
                 <li>{{res_data.historyWarnings}}</li>
-                <li>历史告警</li>
+                <li>当前告警</li>
               </ul>
              <i class="ks kcp-check"></i>
            </li>
@@ -24,7 +24,7 @@
            <li @click="$router.go({name:'my_market',query:{status:'5'}})">
               <ul>
                 <li>{{res_data.totalDevices}}</li>
-                <li>总设备</li>
+                <li>总和设备</li>
               </ul>
              <i class="ks kcp-ongoing"></i>
            </li>
@@ -41,7 +41,7 @@
 				res_data:{},
 				report_data:{
 				    title : {
-				        text: '当前告警总览',
+				        // text: '当前告警总览',
 				        // subtext: '纯属虚构',
 				        x:'center'
 				    },
@@ -52,7 +52,7 @@
 				    legend: {
 				        orient: 'vertical',
 				        left: 'left',
-				        data: ['不在线设备','信号弱设备','正常设备']
+				        data: ['离线','信号弱','正常']
 				    },
 				    series : [
 				        {
@@ -62,9 +62,9 @@
 				            center: ['50%', '60%'],
 				            data:[
 				            	
-				            	{value:0, name:'不在线设备'},
-				            	{value:0.1, name:'信号弱设备'},
-				            	{value:0.9, name:'正常设备'}
+				            	{value:0, name:'离线'},
+				            	{value:0.1, name:'信号弱'},
+				            	{value:0.9, name:'正常'}
 				                
 				            ],
 				            itemStyle: {

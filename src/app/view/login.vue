@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div id="login_page">
         <div class="login-box pt40 pb40 pr30 pl30">
             <div class="row">
                 <div class="col br1s">
                     <div class="row">
                         <div class="col">
-                            <img src="../../assets/image/logo.png" style="width:160px;height160px; margin-left:80px;">
+                            <img src="../../assets/image/logo3.png" style="width:160px;height160px; margin-left:80px;">
                         </div>
                     </div>
                     <div class="row">
@@ -21,11 +21,11 @@
                     </div>
                     <div class="row mt20">
                         <div class="col lh36 r pr10">用户名：</div>
-                        <div class="col w260"><input type="text" class="kcp_text w260" v-model="user.username | trim"></div>
+                        <div class="col w260"><input style= "background-color:transparent " type="text" class="kcp_text w260" bcn v-model="user.username | trim"></div>
                     </div>
                     <div class="row mt20">
                         <div class="col lh36 r pr10">密&nbsp;&nbsp;&nbsp;码：</div>
-                        <div class="col w260"><input type="password" class="kcp_text w260" v-model="user.password | trim"></div>
+                        <div class="col w260"><input style= "background-color:transparent " type="password" class="kcp_text w260 bcn" v-model="user.password | trim"></div>
                     </div>
                     <div class="row mt20">
                         <div class="col lh36 r pr10"></div>
@@ -117,6 +117,15 @@
   /*   .col{
         border: 1px solid red;
     } */
+    .bcn {
+        background-color: transparent;
+    }
+    #login_page {
+        height: 100%;
+       border: 1px solid #fff;
+       background: url('../../assets/image/login_bg.jpg') no-repeat ;
+       background-size:cover;  
+    }
     .cp{
         color: rgba(39, 41, 43, 0.8);
         font-size: 30px;

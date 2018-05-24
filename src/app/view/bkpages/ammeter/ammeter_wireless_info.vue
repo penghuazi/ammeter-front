@@ -1,7 +1,7 @@
 <template>
 	<div class="ammeter-info">
 		<div class="kcp_router_title">
-			无线终端详情&nbsp;&nbsp;&nbsp;&nbsp;【imsi: &nbsp;&nbsp;{{imsi}}】
+			无线终端详情&nbsp;&nbsp;&nbsp;&nbsp;【imei: &nbsp;&nbsp;{{imsi}}】
 		</div>
 
 
@@ -17,9 +17,6 @@
 
 		
 		<div class="kcp_router_title"></div>
-		<div class="base-box tc">
-			<button  @click="back()" class="kcp_lbtn w120 mt20 mr10">返回</button>
-		</div>
 
 		
 	</div>

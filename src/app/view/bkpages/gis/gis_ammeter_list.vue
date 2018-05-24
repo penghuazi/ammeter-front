@@ -45,8 +45,7 @@
 						<td>
 							<a class="mr10"  v-if="p.workStatus==2" @click="tOFF(p.id,1)">拉闸</a>
 							<a class="mr10"  v-if="p.workStatus==1" @click="tON(p.id,2)">合闸</a>
-							<a @click="getInfo(p.id)">定位信息</a>&nbsp;
-							<a @click='edit(p.id)'>修改</a>
+							<a @click='edit(p.id)'>更多</a>
 
 						</td>
 					</tr>

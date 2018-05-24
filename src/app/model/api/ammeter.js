@@ -24,6 +24,8 @@ export default {
 	update_position_status:{save:'/position/updateStatus'},
 	// gis 详情
 	get_position_info:{get:'/position/ammeterPositionInfo/{positionId}/{sn}'},
+
+	position_delete:{get:'/position/delete/{positionId}/{sn}'},
 	// 配置信息
 	get_position_config:{get: '/position/config/{positionId}'},
 

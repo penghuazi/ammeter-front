@@ -39,13 +39,13 @@ export default  [
           {name: '全部配置', icon: 'icon', link: ''}
         ]
       },
-      {
-        name: '系统设置', icon: 'icon', menu_link: '',
-        subMenu: [
-          {name: '角色管理', icon: 'icon', link: ''},
-          {name: '账号开通', icon: 'icon', link: ''}
-        ]
-      }                             
+      // {
+      //   name: '系统设置', icon: 'icon', menu_link: '',
+      //   subMenu: [
+      //     {name: '角色管理', icon: 'icon', link: ''},
+      //     {name: '账号开通', icon: 'icon', link: ''}
+      //   ]
+      // }                             
     ]
 
   

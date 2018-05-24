@@ -69,12 +69,20 @@
 				<button  @click="restart" class="kcp_nbtn w120">配置</button>
 			</div>
 		</div>
+		<div class="base-box form tc">
+			<div class="form-column">
+				设备注销设置
+			</div>
+			<div class="form-container">
+				<button  @click="delete" class="kcp_nbtn w120">配置</button>
+			</div>
+		</div>
 	</div>
 </template>
 <script>
 	
 	export default{
-		vuem:['ammeter.get_position_config','ammeter.save_position_config','ammeter.reset','ammeter.restore','ammeter.system_config'],
+		vuem:['ammeter.get_position_config','ammeter.save_position_config','ammeter.reset','ammeter.restore','ammeter.system_config','ammeter.position_delete'],
 		data(){
 			return{
 				id:'',
@@ -103,6 +111,13 @@
 				this.$m.ammeter.restore(this.position).then(res => {
 					if(res.code==10000){
 		         		$KsDialog.success('恢复出厂设置成功!')
+		         	 }
+				})
+			},
+			delete:function(){
+				this.$m.ammeter.position_delete({positionId:this.id,sn:this.id}).then(res => {
+					if(res.code==10000){
+		         		$KsDialog.success('设备注销成功!')
 		         	 }
 				})
 			},

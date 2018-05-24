@@ -122,8 +122,8 @@
   }
 </script>
 <style>
-    .welcome{
-        margin: 100px auto;
+    #container{
+        margin: 62px 20px;
     }
     .eg{
         color: #ccc;
