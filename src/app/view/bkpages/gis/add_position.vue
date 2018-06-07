@@ -70,7 +70,7 @@
 		</div>
 		<div class="base-box form">
 			<div class="form-column">
-				备注
+				具体位置
 			</div>
 			<div class="form-container ">
 				<textarea placeholder="备注最多可以输入200字" maxlength="200" v-model="position.remark"></textarea>

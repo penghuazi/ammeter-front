@@ -30,6 +30,36 @@
 				<input type="text" class="kcp_text "  v-model="position.installer"/>
 			</div>
 		</div>
+
+		<div class="base-box form">
+			<div class="form-column">
+				电表型号
+			</div>
+			<div class="form-container ">
+				<input type="text" class="kcp_text "  v-model="position.deviceModel"/>
+			</div>
+			<div class="form-column">
+				用电单位
+			</div>
+			<div class="form-container ">
+				<input type="text" class="kcp_text "  v-model="position.companyName"/>
+			</div>
+		</div>
+		<div class="base-box form">
+			<div class="form-column">
+				合同状态
+			</div>
+			<div class="form-container ">
+				<input type="text" class="kcp_text "  v-model="position.agreementStatus"/>
+			</div>
+			<div class="form-column">
+				联系人信息
+			</div>
+			<div class="form-container ">
+				<input type="text" class="kcp_text "  v-model="position.contactInfo"/>
+			</div>
+		</div>
+
 		<div class="base-box form">
 			<div class="form-column">
 				高德经度
@@ -54,7 +84,7 @@
 		</div>
 		<div class="base-box form">
 			<div class="form-column">
-				备注
+				具体位置
 			</div>
 			<div class="form-container ">
 				<textarea placeholder="备注最多可以输入200字" style="width:530px" maxlength="200" v-model="position.remark"></textarea>

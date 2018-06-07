@@ -16,21 +16,27 @@
 					<tr class="header">
 						<th>设备编号</th>
 						<th>设备名称</th>
-						<th>安装人员</th>
-						<th>安装时间</th>
-						<th>位置信息</th>	
-						<th>位置备注</th>	
-						<th>在线状态</th>
+						<th>电表编号</th>
+						<th>电表型号</th>
+						<th>经纬度信息</th>
+						<th>具体位置</th>
+						<th>电表即时度数</th>
+						<th>用电单位</th>
+						<th>合同状态</th>
+						<th>联系人信息</th>
 						<th>操作</th>
 					</tr>
 					<tr v-for="a in ammeterList">
 						<td>{{a.id}}</td>
 						<td>{{a.name}}</td>
-						<td>{{a.installer}}</td>
-						<td>{{a.createDate}}</td>
+						<td>{{a.ammeterNumber}}</td>
+						<td>{{a.deviceModel}}</td>
 						<td>{{a.gisAmap}}</td>
 						<td>{{a.remark}}</td>
-						<td>{{a.onlineStatus}}</td>
+						<td>{{a.activePower}}</td>
+						<td>{{a.companyName}}</td>
+						<td>{{a.agreementStatus}}</td>
+						<td>{{a.contactInfo}}</td>
 						<td>
 							<a @click="report(a)">查看详情</a>
 						</td>
