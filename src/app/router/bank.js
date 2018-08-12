@@ -24,7 +24,7 @@ export default {
              ////////////电表无线管理///////////////////////////////////////////
             'ammeter_wireless_list':{
                 name:'ammeter_wireless_list',
-                title:'电表无线管理',
+                title:'采集终端管理',
                 component: function(resolve){
                     require(['../view/bkpages/ammeter/ammeter_wireless_list.vue'],resolve)
                 }
@@ -116,31 +116,30 @@ export default {
             'warning_history':{
                 name:'warning_history',
                 title:'电表终端详情',
-                component: function(resolve){
+                component: function (resolve){
                     require(['../view/bkpages/warning/warning_history.vue'],resolve)
                 }
             }, 
-            'warning_current':{
-                name:'warning_current',
-                title:'电表终端详情',
-                component: function(resolve){
+            'warning_current': {
+                name: 'warning_current',
+                title: '电表终端详情',
+                component: function (resolve) {
                     require(['../view/bkpages/warning/warning_current.vue'],resolve)
                 }
             }, 
-
-
-
-
-            
-            'edit':{
-                name:'edit',
-                title:'edit',
-                component: function(resolve){
-                    require(['../view/bkpages/gis/edit.vue'],resolve)
+            'edit': {
+                name: 'edit',
+                title: 'edit',
+                component: function (resolve) {
+                    require(['../view/bkpages/gis/edit.vue'], resolve)
                 }
-            }, 
-
-
-
+            },
+            'device_import': {
+                name: 'device_import',
+                title: 'edit',
+                component: function (resolve) {
+                    require(['../view/bkpages/system/device_import.vue'], resolve)
+                }
+            }
         }
     }

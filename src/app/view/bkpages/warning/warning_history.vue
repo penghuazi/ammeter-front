@@ -21,6 +21,7 @@
 						<th>告警日期</th>
 						<th>告警状态</th>		
 						<th>告警类别</th>
+						<th>消除原因</th>
 					</tr>
 					<tr v-for="w in warningList">
 						<td>{{w.id}}</td>
@@ -29,6 +30,7 @@
 						<td>{{w.warningDate}}</td>
 						<td>{{w.statusName}}</td>
 						<td>{{w.warningDesc}}</td>
+						<td>{{w.reason}}</td>
 					</tr>
 				</table>
 				<div class="kcp_table-pages">

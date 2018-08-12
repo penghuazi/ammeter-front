@@ -49,7 +49,10 @@ export default {
 
 	avoid_warning:{get: '/warning/avoid/{warningId}/{sn}'},
 
-
+	// 终端倒入列表
+	get_imei_list:{save: '/position/queryImeiList'},
+	add_imei:{save: '/position/saveIMEI'},
+	delete_imei:{get: '/position/deleteImei/{imei}'}
 
 
 }

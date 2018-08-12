@@ -16,20 +16,16 @@
 						<th>设备编号</th>
 						<th>设备名称</th>
 						<th>IMEI号</th>
-						<th>RSRP</th>
 						<th>RSRQ</th>
 						<th>RSSI</th>
-						<th>CELIID</th>
 						<th>操作</th>
 					</tr>
 					<tr v-for="a in ammeterList">
 						<td>{{a.id}}</td>
 						<td>{{a.name}}</td>
 						<td>{{a.imsi}}</td>
-						<td>{{a.rsrp}}</td>
 						<td>{{a.rsrq}}</td>
 						<td>{{a.rssi}}</td>
-						<td>{{a.celli}}</td>
 						<td>
 							<a @click="getInfo(a.imsi)">查看详情</a>
 						</td>

@@ -61,8 +61,8 @@
             var infoWindow = new SimpleInfoWindow({
               infoTitle: '<strong>IMEI:'+_this.gis.imei+'</strong>',
               infoBody: '<p class="my-desc"><strong>状态：'+_this.gis.status
-              +'</strong> <br/> 高德地图经度：' +_this.gis.amapLongitude+
-                  '<br/> 高德地图纬度：'+_this.gis.amapLatitude+'<br/>地址：<strong>'+_this.gis.address+'</strong>'
+              +'</strong> <br/> 电表名称：' +_this.gis.name+
+                  '<br/> 地址：'+_this.gis.address+'<br/>备注：<strong>'+_this.gis.remark+'</strong>'
                   +'</p>',
 
               //基点指向marker的头部位置
@@ -110,6 +110,8 @@
               this.gis.amapLatitude = res.data.amapLatitude
               this.gis.amapLongitude = res.data.amapLongitude
               this.gis.status = res.data.statusName
+              this.gis.remark = res.data.remark,
+              this.gis.name = res.data.name
               this.initMap()
             }
           })

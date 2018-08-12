@@ -39,6 +39,12 @@ export default  [
           {name: '全部配置', icon: 'icon', link: ''}
         ]
       },
+      {
+        name: '系统管理', icon: 'icon', menu_link: '',
+        subMenu: [
+          {name: '设备导入', icon: 'icon', link: 'device_import'},
+        ]
+      },
       // {
       //   name: '系统设置', icon: 'icon', menu_link: '',
       //   subMenu: [

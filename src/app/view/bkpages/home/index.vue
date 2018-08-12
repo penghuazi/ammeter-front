@@ -119,8 +119,7 @@
                 getInfoWindow: function(dataItem, context, recycledInfoWindow) {
 
                     let title = '<strong>IMEI:'+dataItem.imei+'</strong>';
-                    let body = '<p class="my-desc"><strong>状态：'+dataItem.statusName+'</strong> <br/>高德地图经度：' +dataItem.position[0]+'<br/> 高德地图纬度：'+dataItem.position[1]+'<br/>地址：<strong>'+dataItem.address+'</strong>'
-                            +'</p>'
+                    let body = '<p class="my-desc"><strong>状态：'+dataItem.statusName+'</strong><br/>电表名称：' +dataItem.name+'<br/>地址：'+dataItem.address+'<br/>备注：<strong>'+dataItem.remark+'</strong>'+'</p>'
 
                     if (recycledInfoWindow) {
                         //存在可回收利用的infoWindow, 直接更新内容返回

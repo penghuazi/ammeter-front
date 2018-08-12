@@ -1,5 +1,25 @@
 <template>
 	<div class="kcp_info">
+		<modal_center width="300px"  :show.sync="show">       
+	       	<div  class="pb10 ovh" style="width:95%; margin:5px auto;">
+	       		<div class="modal-taitle">
+		
+					<div class="kcp_router_title mb20">
+						消除告警
+					</div>
+	       		</div>
+	       		<div class="tc">
+					<input type="text" class="kcp_text w260" placeholder="请输入消除原因" v-model="subData.reason">
+				</div>
+				<div class="mt30 mb10">
+					
+					<div class="modal-right tc">
+						<button @click="submit" class="kcp_nbtn w120  mr10">保存</button>
+						<button @click="showMoal" class="kcp_nbtn w120  ">取消</button>
+					</div>
+				</div>
+	       	</div>
+	    </modal_center>
 		<div class="kcp_router_title mb20">
 			当前告警
 			
@@ -30,7 +50,7 @@
 						<td>{{w.warningDate}}</td>
 						<td>{{w.statusName}}</td>
 						<td>{{w.warningDesc}}</td>
-						<td><a v-if="w.warningStatus==0" @click="avoid(w.warningId)">消除告警</a></td>
+						<td><a v-if="w.warningStatus==0" @click="showMoal(w.warningId)">消除告警</a></td>
 					</tr>
 				</table>
 				<div class="kcp_table-pages">
@@ -52,8 +72,13 @@
 		vuem:['ammeter.get_warning_list','ammeter.avoid_warning'],
 		data(){
 			return{
+				show:false,
 				id:'',
 				pageGroupVal:1,
+				subData:{
+					reason:''
+				},
+				warningId:'',
 				queryData:{
 					name:'', //  (string, optional): 电表名称 ,
 					imei:'', //  (string, optional): 电表编号 ,
@@ -66,15 +91,24 @@
 			}
 		},
 		methods:{
+			submit:function(){
+				this.avoid(this.warningId)
+			},
+			showMoal:function(id){
+				this.show = !this.show
+				this.warningId = id
+				this.subData.reason = ''
+			},
 			search:function(){
 				this.queryData.pageIndex=1;
 				this.getWarningList();
 			},
 			avoid:function(id){
-				this.$m.ammeter.avoid_warning({warningId:id,sn:'position'}).then(res =>{
+				this.$m.ammeter.avoid_warning({warningId:id,sn:'position',reason:this.subData.reason}).then(res =>{
 					if (res.code === 10000) {
 		              $KsDialog.success('消除成功!');
-		              this.getWarningList()
+					  this.getWarningList()
+					  this.showMoal()
 		            }
 				})
 			},

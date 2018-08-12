@@ -9,7 +9,7 @@
 		<ul class="kcp_home_nav">
             <li @click="$router.go({name:'my_market',query:{status:'2'}})">
               <ul>
-                <li>{{res_data.historyWarnings}}</li>
+                <li>{{res_data.currentWarnings}}</li>
                 <li>当前告警</li>
               </ul>
              <i class="ks kcp-check"></i>
@@ -52,7 +52,7 @@
 				    legend: {
 				        orient: 'vertical',
 				        left: 'left',
-				        data: ['离线','信号弱','正常']
+				        data: ['未上电','信号弱','正常']
 				    },
 				    series : [
 				        {
@@ -62,7 +62,7 @@
 				            center: ['50%', '60%'],
 				            data:[
 				            	
-				            	{value:0, name:'离线'},
+				            	{value:0, name:'未上电'},
 				            	{value:0.1, name:'信号弱'},
 				            	{value:0.9, name:'正常'}
 				                
