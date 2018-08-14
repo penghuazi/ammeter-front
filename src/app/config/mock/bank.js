@@ -28,7 +28,7 @@ export default  [
         subMenu: [
           {name: '告警总览', icon: 'icon', link: 'warning_report'},
           {name: '当前告警', icon: 'icon', link: 'warning_current'},
-          {name: '历史总览', icon: 'icon', link: 'warning_history'}
+          {name: '历史告警', icon: 'icon', link: 'warning_history'}
         ]
       },
       {

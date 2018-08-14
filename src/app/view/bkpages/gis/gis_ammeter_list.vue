@@ -3,9 +3,9 @@
 		<div class="kcp_router_title">
 			智能设备维护
 		</div>
-		<div class="kcp_market_search">
+		<div class="kcp_market_search mt20">
 			<!-- <input type="text" class="kcp_text w260" placeholder="请输入表号" v-model="queryData.meterNo"> -->
-			<input type="text" class="kcp_text w260" placeholder="请输入IMEI号" v-model="queryData.imei">
+			<!-- <input type="text" class="kcp_text w260" placeholder="请输入IMEI号" v-model="queryData.imei"> -->
 			<input type="text" class="kcp_text w260" placeholder="请输入名称" v-model="queryData.name">
 
 			<button class="kcp_nbtn w54 ml10" @click="search">查询</button>
@@ -16,25 +16,27 @@
 				<table>
 					<tr class="header">
 						<th>设备编号</th>
-						<th>IMEI号</th>
+						<!-- <th>IMEI号</th> -->
 						<th>设备名称</th>
-						<th>安装人员</th>
-						<th>安装日期</th>		
-						<th>经纬度信息</th>
+						<!-- <th>经纬度信息</th> -->
+						<th>电表位置</th>
 						<th>具体位置</th>
+						<th>安装人员</th>
+						<th>安装日期</th>
 						<th>在线状态</th>
 						<th>工作状态</th>
-
 						<th>操作</th>
 					</tr>
 					<tr v-for="p in positionList">
 						<td>{{p.id}}</td>
-						<td>{{p.imei}}</td>
+						<!-- <td>{{p.imei}}</td> -->
 						<td>{{p.name}}</td>
+						
+						<!-- <td>{{'(' +p.amapLongitude +','+p.amapLatitude+ ')'}}</td> -->
+						<td>{{p.address}}</td>
+						<td>{{p.remark}}</td>
 						<td>{{p.installer}}</td>
 						<td>{{p.createTime}}</td>
-						<td>{{'(' +p.amapLongitude +','+p.amapLatitude+ ')'}}</td>
-						<td>{{p.remark}}</td>
 						<td>{{p.statusName}}</td>
 						<td>
 							<template v-if="p.workStatus==1">拉闸</template>

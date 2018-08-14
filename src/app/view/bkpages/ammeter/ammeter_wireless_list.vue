@@ -3,7 +3,7 @@
 		<div class="kcp_router_title">
 			采集终端管理
 		</div>
-		<div class="kcp_market_search">
+		<div class="kcp_market_search mt20">
 			<!-- <input type="text" class="kcp_text w260" placeholder="请输入表号" v-model="queryData.meterNo"> -->
 			<input type="text" class="kcp_text w260" placeholder="请输入IMEI号" v-model="queryData.imsi">
 
@@ -16,7 +16,7 @@
 						<th>设备编号</th>
 						<th>设备名称</th>
 						<th>IMEI号</th>
-						<th>RSRQ</th>
+						<!-- <th>RSRQ</th> -->
 						<th>RSSI</th>
 						<th>操作</th>
 					</tr>
@@ -24,7 +24,7 @@
 						<td>{{a.id}}</td>
 						<td>{{a.name}}</td>
 						<td>{{a.imsi}}</td>
-						<td>{{a.rsrq}}</td>
+						<!-- <td>{{a.rsrq}}</td> -->
 						<td>{{a.rssi}}</td>
 						<td>
 							<a @click="getInfo(a.imsi)">查看详情</a>

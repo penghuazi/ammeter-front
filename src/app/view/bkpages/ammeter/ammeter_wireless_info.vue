@@ -1,7 +1,7 @@
 <template>
 	<div class="ammeter-info">
 		<div class="kcp_router_title">
-			无线终端详情&nbsp;&nbsp;&nbsp;&nbsp;【imei: &nbsp;&nbsp;{{imsi}}】
+			无线终端详情&nbsp;&nbsp;&nbsp;&nbsp;【IMEI: &nbsp;&nbsp;{{imsi}}】
 		</div>
 
 
@@ -49,7 +49,7 @@
 		            legend: {
 		                orient:'vertical',
 		                x:'left',
-		                data:['rsrq']
+		                data:['RSSI']
 		            },
 	            	calculable : true,
 		            xAxis : [
@@ -73,7 +73,7 @@
 		            ],
 		            series : [
 		                {
-		                    name:'rsrq',
+		                    name:'RSSI',
 		                    type:'line',
 		                    data:[ ],
 		                },
@@ -89,7 +89,7 @@
 					if (res.code==10000) {
 						console.log(this.report_data.series);
 						console.log('报表数据',res.data);
-						this.report_data.series[0].data=res.data.rsrq;
+						this.report_data.series[0].data=res.data.rssi;
 						this.ammeter.cellid=res.data.celli;
 						this.ammeter.rssi=res.data.rssi;
 					}

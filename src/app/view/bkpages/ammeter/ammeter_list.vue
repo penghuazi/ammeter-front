@@ -3,7 +3,7 @@
 		<div class="kcp_router_title">
 			电表终端管理
 		</div>
-		<div class="kcp_market_search">
+		<div class="kcp_market_search mt20">
 			<!-- <input type="text" class="kcp_text w260" placeholder="请输入表号" v-model="queryData.meterNo"> -->
 			<input type="text" class="kcp_text w260" placeholder="请输入设备名称" v-model="queryData.name">
 			<input type="text" class="kcp_text w260" placeholder="请输入安装人员" v-model="queryData.installer">
@@ -16,9 +16,10 @@
 					<tr class="header">
 						<th>设备编号</th>
 						<th>设备名称</th>
-						<th>电表编号</th>
-						<th>电表型号</th>
-						<th>经纬度信息</th>
+						<!-- <th>电表编号</th>
+						<th>电表型号</th> -->
+						<!-- <th>经纬度信息</th> -->
+						<th>电表位置</th>
 						<th>具体位置</th>
 						<th>电表即时度数</th>
 						<th>用电单位</th>
@@ -29,9 +30,10 @@
 					<tr v-for="a in ammeterList">
 						<td>{{a.id}}</td>
 						<td>{{a.name}}</td>
-						<td>{{a.ammeterNumber}}</td>
+						<!-- <td>{{a.ammeterNumber}}</td>
 						<td>{{a.deviceModel}}</td>
-						<td>{{a.gisAmap}}</td>
+						<td>{{a.gisAmap}}</td> -->
+						<td>{{a.address}}</td>
 						<td>{{a.remark}}</td>
 						<td>{{a.activePower}}</td>
 						<td>{{a.companyName}}</td>

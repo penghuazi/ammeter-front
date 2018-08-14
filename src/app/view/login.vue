@@ -36,6 +36,9 @@
                 </div>
             </div>
         </div>
+        <div class="tc" style="">
+                CopyRight 2018  版权所有  十钉(上海)  苏ICP备18031899号
+        </div>
     </div>
 </template>
 <script type="text/javascript">
@@ -123,8 +126,12 @@
     #login_page {
         height: 100%;
        border: 1px solid #fff;
-       background: url('../../assets/image/login_bg.jpg') no-repeat ;
-       background-size:cover;  
+       /* background: url('../../assets/image/login_bg.jpg') no-repeat ;
+       background-size:cover;   */
+       background: -webkit-linear-gradient(#336699, #ccc); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(#336699, #ccc); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(#336699, #ccc); /* Firefox 3.6 - 15 */
+        background: linear-gradient(#336699, #ccc); /* 标准的语法（必须放在最后） */
     }
     .cp{
         color: rgba(39, 41, 43, 0.8);
@@ -137,6 +144,9 @@
    .login-box{
         margin: 200px auto;
         border: 1px solid #ccc;
+        /* border-left:1px solid #ccc;
+        border-top:1px solid #ccc; */
+        box-shadow: 10px 10px 5px #336699;
         width: 680px;
         height: auto;
         border-radius:5px;

@@ -10,7 +10,7 @@
 				<table>
 					<tr class="header">
 						<th>设备编号</th>
-						<th>IMEI号</th>
+						<!-- <th>IMEI号</th> -->
 						<th>设备名称</th>
 						<th>告警日期</th>		
 						<th>告警类别</th>
@@ -18,7 +18,7 @@
 					</tr>
 					<tr v-for="p in positionList">
 						<td>{{p.id}}</td>
-						<td>{{p.imei}}</td>
+						<!-- <td>{{p.imei}}</td> -->
 						<td>{{p.name}}</td>
 						<td>{{p.installer}}</td>
 						<td>{{p.createTime}}</td>

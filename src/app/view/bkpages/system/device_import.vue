@@ -36,7 +36,7 @@
 						<th>imei</th>
 						<th>创建人</th>
 						<th>创建时间</th>
-						<th>终端名称</th>
+						<th>设备名称</th>
 						<th>操作</th>
 					</tr>
 					<tr v-for="i in imeiList">
