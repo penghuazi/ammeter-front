@@ -26,7 +26,7 @@
 					<tr v-for="w in warningList">
 						<td>{{w.id}}</td>
 						<!-- <td>{{w.imsi}}</td> -->
-						<td>{{w.number}}</td>
+						<td :title="w.number">{{w.number && w.number.length > 10 ? w.number.substring(0,10) + '...' : w.number}}</td>
 						<td>{{w.warningDate}}</td>
 						<td>{{w.statusName}}</td>
 						<td>{{w.warningDesc}}</td>

@@ -34,16 +34,30 @@
 		</div>
 		<div class="base-box form">
 			<div class="form-column">
-				GPS经度
+				电表型号
 			</div>
 			<div class="form-container ">
-				<input type="text" class="kcp_text "  v-model="position.gpsLongitude"/>
+				<input type="text" class="kcp_text "  v-model="position.deviceModel"/>
 			</div>
 			<div class="form-column">
-				GPS纬度
+				用电单位
 			</div>
 			<div class="form-container ">
-				<input type="text" class="kcp_text "  v-model="position.gpsLatitude"/>
+				<input type="text" class="kcp_text "  v-model="position.companyName"/>
+			</div>
+		</div>
+		<div class="base-box form">
+			<div class="form-column">
+				合同状态
+			</div>
+			<div class="form-container ">
+				<input type="text" class="kcp_text "  v-model="position.agreementStatus"/>
+			</div>
+			<div class="form-column">
+				联系人信息
+			</div>
+			<div class="form-container ">
+				<input type="text" class="kcp_text "  v-model="position.contactInfo"/>
 			</div>
 		</div>
 		<div class="base-box form">
@@ -62,10 +76,16 @@
 		</div>
 		<div class="base-box form">
 			<div class="form-column">
+				设备项目
+			</div>
+			<div class="form-container ">
+				<input type="text" class="kcp_text"  v-model="position.address"/>
+			</div>
+			<div class="form-column">
 				电表地址
 			</div>
 			<div class="form-container ">
-				<input type="text" class="kcp_text" style="width:530px" v-model="position.address"/>
+				<input type="text" class="kcp_text"  v-model="position.address"/>
 			</div>
 		</div>
 		<div class="base-box form">
@@ -73,7 +93,7 @@
 				备注
 			</div>
 			<div class="form-container ">
-				<textarea placeholder="备注最多可以输入200字" maxlength="200" v-model="position.remark"></textarea>
+				<textarea placeholder="备注最多可以输入200字" style="width:40.8rem" maxlength="200" v-model="position.remark"></textarea>
 			</div>
 		</div>
 
@@ -98,6 +118,10 @@
 					amapLongitude:'', // (string, optional): 高德经度 ,
 					gpsLatitude:'', // (string, optional): GPS纬度 ,
 					gpsLongitude:'', // (string, optional): GPS经度 ,
+					deviceModel:'',
+					companyName:'',
+					agreementStatus:'',
+					contactInfo:'',
 					id:'', // (integer, optional): 位置信息Id,创建时不需要传! ,
 					name:'', // (string, optional): 电表名称 ,
 					number:'', // (string, optional): 电表编号 ,

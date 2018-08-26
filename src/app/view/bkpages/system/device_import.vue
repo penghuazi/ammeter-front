@@ -33,7 +33,7 @@
 			<div class="kcp_table-lister">
 				<table>
 					<tr class="header">
-						<th>imei</th>
+						<th>IMEI号</th>
 						<th>创建人</th>
 						<th>创建时间</th>
 						<th>设备名称</th>
@@ -43,7 +43,7 @@
 						<td>{{i.imei}}</td>
 						<td>{{i.createBy}}</td>
 						<td>{{i.createTime}}</td>
-						<td>{{i.deviceName}}</td>
+						<td :title="i.deviceName">{{i.deviceName  && i.deviceName.length > 10 ? i.deviceName.substring(0,10)+'...' : i.deviceName}}</td>
 						<td><a @click='isDelete(i.imei)'>删除</a></td>
 					</tr>
 				</table>

@@ -40,6 +40,19 @@ export default  [
         ]
       },
       {
+        name: '工单管理', icon: 'icon', menu_link: '',
+        subMenu: [
+          {name: '', icon: 'icon', link: ''},
+          
+        ]
+      },
+      {
+        name: '统计管理', icon: 'icon', menu_link: '',
+        subMenu: [
+          {name: '', icon: 'icon', link: ''},
+        ]
+      },
+      {
         name: '系统管理', icon: 'icon', menu_link: '',
         subMenu: [
           {name: '设备导入', icon: 'icon', link: 'device_import'},

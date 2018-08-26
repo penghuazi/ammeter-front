@@ -22,7 +22,7 @@
 					</tr>
 					<tr v-for="a in ammeterList">
 						<td>{{a.id}}</td>
-						<td>{{a.name}}</td>
+						<td :title="a.name">{{a.name && a.name.length > 10 ? a.name.substring(0,10) + '...' : a.name}}</td>
 						<td>{{a.imsi}}</td>
 						<!-- <td>{{a.rsrq}}</td> -->
 						<td>{{a.rssi}}</td>

@@ -20,7 +20,8 @@
 						<th>电表型号</th> -->
 						<!-- <th>经纬度信息</th> -->
 						<th>电表位置</th>
-						<th>具体位置</th>
+						<th>备注</th>
+						<th>在线状态</th>
 						<th>电表即时度数</th>
 						<th>用电单位</th>
 						<th>合同状态</th>
@@ -29,12 +30,14 @@
 					</tr>
 					<tr v-for="a in ammeterList">
 						<td>{{a.id}}</td>
-						<td>{{a.name}}</td>
+						<td :title="a.name">{{a.name && a.name.length > 10 ? a.name.substring(0,10)+'...' : a.name}}</td>
+						
 						<!-- <td>{{a.ammeterNumber}}</td>
 						<td>{{a.deviceModel}}</td>
 						<td>{{a.gisAmap}}</td> -->
-						<td>{{a.address}}</td>
-						<td>{{a.remark}}</td>
+						<td :title="a.address">{{a.address && a.address.length > 10 ? a.address.substring(0,10) + '...' : a.address}}</td>
+						<td :title="a.remark">{{a.remark && a.remark.length > 10 ? a.remark.substring(0,10) + '...' : a.remark}}</td>
+						<td>{{a.onlineStatus}}</td>
 						<td>{{a.activePower}}</td>
 						<td>{{a.companyName}}</td>
 						<td>{{a.agreementStatus}}</td>

@@ -76,10 +76,16 @@
 		</div>
 		<div class="base-box form">
 			<div class="form-column">
+				设备项目
+			</div>
+			<div class="form-container ">
+				<input type="text" class="kcp_text"  v-model="position.address"/>
+			</div>
+			<div class="form-column">
 				电表地址
 			</div>
 			<div class="form-container ">
-				<input type="text" class="kcp_text" style="width:530px" v-model="position.address"/>
+				<input type="text" class="kcp_text" v-model="position.address"/>
 			</div>
 		</div>
 		<div class="base-box form">

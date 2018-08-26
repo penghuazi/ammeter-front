@@ -42,49 +42,35 @@
 
 				],
 				report_data:{
-	            	title : {
-	                	// text: '电量信息'
-	            	},
-		            tooltip : {
-		                trigger: 'axis',
-		                textStyle:{color:'#fff'}
-		            },
-		            legend: {
-		                orient:'vertical',
-		                x:'left',
-		                data:['用电量']
-		            },
-	            	calculable : true,
-		            xAxis : [
-		                {
-		                    type : 'category',
-		                    boundaryGap : false,
-		                    data : ['0h','1h','2h','3h','4h','5h','6h','7h','8h','9h','10h','11h','12h'
+					color: ['#163b65'],
+					tooltip : {
+						trigger: 'axis',
+						axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+							type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+						}
+					},
+					grid: {
+						left: '3%',
+						right: '4%',
+						bottom: '3%',
+						containLabel: true
+					},
+					xAxis: {
+						type: 'category',
+						data: ['0h','1h','2h','3h','4h','5h','6h','7h','8h','9h','10h','11h','12h'
 		                    		,'13h','14h','15h','16h','17h','18h'
-		                    		,'19h','20h','21h','22h','23h'
-		                    ]
-		                }
-		            ],
-		            yAxis : [
-		                {
-		                    type : 'value',
-		                    axisLabel : {
-		                        formatter: '{value} kW/h'
-		                    }
-		                }
-		            ],
-		            series : [
-		                
-		                {
-		                    name:'用电量',
-		                    type:'line',
-		                    data:[
-
-		                    	
-		                    ],
-		                }                
-		            ]
-		        },
+		                    		,'19h','20h','21h','22h','23h']
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [{
+						name:'增量',
+						type:'bar',
+						barWidth: '40%',
+						data: [100,200,300],
+					}]
+				}
 			}
 		},
 		methods:{

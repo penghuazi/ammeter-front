@@ -31,8 +31,8 @@
             Vue.http.options.root = '.'
             // 代理端口
            // Vue.http.headers.common['DOMAIN'] = 'http://kcp.dev.kashuo.net/kcp'
-        //    Vue.http.headers.common['DOMAIN'] = 'http://101.132.112.174:8088/ammeter'
-           Vue.http.headers.common['DOMAIN'] = 'http://nbiot.legendfly.site:8088/ammeter'
+           Vue.http.headers.common['DOMAIN'] = 'http://101.132.112.174:8088/ammeter'
+        //    Vue.http.headers.common['DOMAIN'] = 'http://nbiot.legendfly.site:8088/ammeter'
            // Vue.http.headers.common['DOMAIN'] = 'http://111.12.59.209:8088/ammeter'
             // Vue.http.headers.common['DOMAIN'] = 'http://192.168.1.102:8088/ammeter'
         }

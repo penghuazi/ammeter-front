@@ -94,7 +94,7 @@
                         iconStyle: 'red',
                         iconStyle: {
 
-                            src: './db.png',
+                            src: (dataItem.warningStatus === '1' || dataItem.statusName === '未上电') ? './db_red.png' : './db.png',
                             style: {
                                 width: '38px',
                                 height: '38px'
@@ -119,7 +119,11 @@
                 getInfoWindow: function(dataItem, context, recycledInfoWindow) {
 
                     let title = '<strong>IMEI:'+dataItem.imei+'</strong>';
-                    let body = '<p class="my-desc"><strong>状态：'+dataItem.statusName+'</strong><br/>电表名称：' +dataItem.name+'<br/>地址：'+dataItem.address+'<br/>备注：<strong>'+dataItem.remark+'</strong>'+'</p>'
+                    let body = '<p class="my-desc"><strong>状态：'
+                    +dataItem.statusName+'</strong><br/>电表名称：' 
+                    +dataItem.name+'<br/>电表位置：'
+                    +dataItem.address+'<br/>备注：'
+                    +dataItem.remark+'</p>'
 
                     if (recycledInfoWindow) {
                         //存在可回收利用的infoWindow, 直接更新内容返回

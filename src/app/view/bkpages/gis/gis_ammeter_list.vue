@@ -16,9 +16,9 @@
 				<table>
 					<tr class="header">
 						<th>设备编号</th>
-						<!-- <th>IMEI号</th> -->
 						<th>设备名称</th>
-						<!-- <th>经纬度信息</th> -->
+						<th>IMEI号</th>
+						<th>设备项目</th>
 						<th>电表位置</th>
 						<th>具体位置</th>
 						<th>安装人员</th>
@@ -29,12 +29,11 @@
 					</tr>
 					<tr v-for="p in positionList">
 						<td>{{p.id}}</td>
-						<!-- <td>{{p.imei}}</td> -->
-						<td>{{p.name}}</td>
-						
-						<!-- <td>{{'(' +p.amapLongitude +','+p.amapLatitude+ ')'}}</td> -->
-						<td>{{p.address}}</td>
-						<td>{{p.remark}}</td>
+						<td :title="p.name">{{p.name && p.name.length > 10 ? p.name.substring(0,10)+'...' : p.name}}</td>
+						<td>{{p.imei}}</td>
+						<td>{{p.imei}}</td>
+						<td :title="p.address">{{p.address && p.address.length > 10 ? p.address.substring(0,10)+'...' : p.address}}</td>
+						<td :title="p.remark">{{p.remark && p.remark.length > 10 ? p.remark.substring(0,10)+'...' : p.remark}}</td>
 						<td>{{p.installer}}</td>
 						<td>{{p.createTime}}</td>
 						<td>{{p.statusName}}</td>
