@@ -79,7 +79,7 @@
 				设备项目
 			</div>
 			<div class="form-container ">
-				<input type="text" class="kcp_text"  v-model="position.address"/>
+				<input type="text" class="kcp_text"  v-model="position.deviceProject"/>
 			</div>
 			<div class="form-column">
 				电表地址

@@ -79,7 +79,7 @@
 				设备项目
 			</div>
 			<div class="form-container ">
-				<input type="text" class="kcp_text"  v-model="position.address"/>
+				<input type="text" class="kcp_text"  v-model="position.deviceProject"/>
 			</div>
 			<div class="form-column">
 				电表地址
@@ -122,6 +122,7 @@
 					companyName:'',
 					agreementStatus:'',
 					contactInfo:'',
+					deviceProject:'',
 					id:'', // (integer, optional): 位置信息Id,创建时不需要传! ,
 					name:'', // (string, optional): 电表名称 ,
 					number:'', // (string, optional): 电表编号 ,

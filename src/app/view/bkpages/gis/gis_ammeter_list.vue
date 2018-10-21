@@ -20,7 +20,7 @@
 						<th>IMEI号</th>
 						<th>设备项目</th>
 						<th>电表位置</th>
-						<th>具体位置</th>
+						<th>备注</th>
 						<th>安装人员</th>
 						<th>安装日期</th>
 						<th>在线状态</th>
@@ -31,7 +31,7 @@
 						<td>{{p.id}}</td>
 						<td :title="p.name">{{p.name && p.name.length > 10 ? p.name.substring(0,10)+'...' : p.name}}</td>
 						<td>{{p.imei}}</td>
-						<td>{{p.imei}}</td>
+						<td>{{p.deviceProject}}</td>
 						<td :title="p.address">{{p.address && p.address.length > 10 ? p.address.substring(0,10)+'...' : p.address}}</td>
 						<td :title="p.remark">{{p.remark && p.remark.length > 10 ? p.remark.substring(0,10)+'...' : p.remark}}</td>
 						<td>{{p.installer}}</td>

@@ -52,7 +52,7 @@
 				    legend: {
 				        orient: 'vertical',
 				        left: 'left',
-				        data: ['未上电','信号弱','正常']
+				        data: ['未上电告警','信号弱告警','正常']
 				    },
 				    series : [
 				        {
@@ -62,8 +62,8 @@
 				            center: ['50%', '60%'],
 				            data:[
 				            	
-				            	{value:0, name:'未上电'},
-				            	{value:0.1, name:'信号弱'},
+				            	{value:0, name:'未上电告警'},
+				            	{value:0.1, name:'信号弱告警'},
 				            	{value:0.9, name:'正常'}
 				                
 				            ],
