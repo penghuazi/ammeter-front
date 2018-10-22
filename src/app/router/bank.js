@@ -140,6 +140,13 @@ export default {
                 component: function (resolve) {
                     require(['../view/bkpages/system/device_import.vue'], resolve)
                 }
+            },
+            'system_config': {
+                name: 'system_config',
+                title: 'edit',
+                component: function (resolve) {
+                    require(['../view/bkpages/system/system_config.vue'], resolve)
+                }
             }
         }
     }

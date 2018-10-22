@@ -1,6 +1,7 @@
 export default {
 	//获取电表列表
 	get_ammeter_list:{save:'device/list'},
+	export_file:{get: 'device/export'},
 	get_ammeter_network_list:{save:'network/networkList'},
 	update_status:{save:'/device/updateStatus'},
 
@@ -52,7 +53,13 @@ export default {
 	// 终端倒入列表
 	get_imei_list:{save: '/position/queryImeiList'},
 	add_imei:{save: '/position/saveIMEI'},
-	delete_imei:{get: '/position/deleteImei/{imei}'}
+	delete_imei:{get: '/position/deleteImei/{imei}'},
+
+
+	// 系统配置
+	get_config: {get: '/system/getWellCoverList'},
+	update_config: {save: '/system/updateWellCover'}
+
 
 
 }

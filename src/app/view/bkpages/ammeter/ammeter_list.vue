@@ -9,6 +9,7 @@
 			<input type="text" class="kcp_text w260" placeholder="请输入安装人员" v-model="queryData.installer">
 
 			<button class="kcp_nbtn w54 ml10" @click="search">查询</button>
+			<button class="kcp_lbtn w100 ml10" @click="exportFile">导出电量</button>
 		</div>
 		<div class="kcp_market_table">
 			<div class="kcp_table-lister">
@@ -64,9 +65,10 @@
 <script>
 	
 	export default{
-		vuem:['ammeter.get_ammeter_list','ammeter.update_status'],
+		vuem:['ammeter.get_ammeter_list','ammeter.update_status', 'ammeter.export_file'],
 		data(){
 			return{
+				lesseeId:Service.session.get('kcpLesseeId'),
 				show:false,
 				show1:false,
 				pageGroupVal:1,
@@ -97,6 +99,9 @@
 			search:function(){
 				this.queryData.pageIndex=1;
 				this.getAmmeterList();
+			},
+			exportFile: function(){
+				window.open('http://nbiot.legendfly.site:8088/ammeter/device/export?tokenId='+this.lesseeId)
 			},
 			//获取电表数据列表
 			getAmmeterList:function() {

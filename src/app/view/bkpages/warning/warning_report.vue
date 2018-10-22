@@ -52,7 +52,7 @@
 				    legend: {
 				        orient: 'vertical',
 				        left: 'left',
-				        data: ['未上电告警','信号弱告警','正常']
+				        data: ['未上电告警','信号弱告警','电流告警','电量告警','正常']
 				    },
 				    series : [
 				        {
@@ -63,7 +63,9 @@
 				            data:[
 				            	
 				            	{value:0, name:'未上电告警'},
-				            	{value:0.1, name:'信号弱告警'},
+								{value:0.1, name:'信号弱告警'},
+								{value:0.1, name:'电流告警'},
+								{value:0.1, name:'电量告警'},
 				            	{value:0.9, name:'正常'}
 				                
 				            ],
@@ -90,8 +92,10 @@
 	            if (res.code === 10000) {
 	            	this.res_data= res.data
 	            	this.report_data.series[0].data[0].value = res.data.warningCategories.warningOfflineDevices
-	            	this.report_data.series[0].data[1].value=res.data.warningCategories.warningRsrqDevices
-	            	this.report_data.series[0].data[2].value=res.data.warningCategories.normalDevices
+					this.report_data.series[0].data[1].value=res.data.warningCategories.warningRsrqDevices
+					this.report_data.series[0].data[2].value=res.data.warningCategories.currentLimitDevices
+					this.report_data.series[0].data[3].value=res.data.warningCategories.electricLimitDevices
+	            	this.report_data.series[0].data[4].value=res.data.warningCategories.normalDevices
 	              	this.ext(this.report_data)
 	            }
 	          })
