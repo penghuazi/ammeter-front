@@ -24,6 +24,7 @@
 						<th>备注</th>
 						<th>在线状态</th>
 						<th>电表即时度数</th>
+						<th>上报时间</th>
 						<th>用电单位</th>
 						<th>合同状态</th>
 						<th>联系人信息</th>
@@ -40,6 +41,7 @@
 						<td :title="a.remark">{{a.remark && a.remark.length > 10 ? a.remark.substring(0,10) + '...' : a.remark}}</td>
 						<td>{{a.onlineStatus}}</td>
 						<td>{{a.activePower}}</td>
+						<td>{{a.productDate | todatetime}}</td>
 						<td>{{a.companyName}}</td>
 						<td>{{a.agreementStatus}}</td>
 						<td>{{a.contactInfo}}</td>

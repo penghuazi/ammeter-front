@@ -62,16 +62,16 @@
 		</div>
 		<div class="base-box form">
 			<div class="form-column">
-				高德经度
+				GPS经度
 			</div>
 			<div class="form-container ">
-				<input type="text" class="kcp_text "  v-model="position.amapLongitude"/>
+				<input type="text" class="kcp_text "  v-model="position.gpsLongitude"/>
 			</div>
 			<div class="form-column">
-				高德纬度
+				GPS纬度
 			</div>
 			<div class="form-container ">
-				<input type="text" class="kcp_text "  v-model="position.amapLatitude"/>
+				<input type="text" class="kcp_text "  v-model="position.gpsLatitude"/>
 			</div>
 		</div>
 		<div class="base-box form">
@@ -82,7 +82,7 @@
 				<input type="text" class="kcp_text"  v-model="position.deviceProject"/>
 			</div>
 			<div class="form-column">
-				电表地址
+				设备位置
 			</div>
 			<div class="form-container ">
 				<input type="text" class="kcp_text"  v-model="position.address"/>

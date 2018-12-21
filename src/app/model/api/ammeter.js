@@ -29,6 +29,8 @@ export default {
 	position_delete:{get:'/position/delete/{positionId}/{sn}'},
 	// 配置信息
 	get_position_config:{get: '/position/config/{positionId}'},
+	// 电量电流告警
+	save_config_warning: {save: 'position/config/warning'},
 
 	save_position_config:{save: '/position/config/save'},
 
@@ -58,7 +60,9 @@ export default {
 
 	// 系统配置
 	get_config: {get: '/system/getWellCoverList'},
-	update_config: {save: '/system/updateWellCover'}
+	update_config: {save: '/system/updateWellCover'},
+	get_contact: {get: '/system/getMsgContactInfo'},
+	update_contact: {save: '/system/updateMsgContactInfo'}
 
 
 

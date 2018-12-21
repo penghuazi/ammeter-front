@@ -1,6 +1,27 @@
 <template>
 	<div class="kcp_info">
 		<div class="kcp_router_title mb40">
+			阀值配置
+		</div>
+		<div class="base-box form">
+			<div class="form-column">
+				电量阀值
+			</div>
+			<div class="form-container ">
+				<input type="text" class="kcp_text w220"  v-model="setWarning.powerValue"/>
+			</div>
+			<div class="form-column">
+				电流阀值
+			</div>
+			<div class="form-container ">
+				<input type="text" class="kcp_text w220"  v-model="setWarning.currentValue"/>
+			</div>
+		</div>
+		<div class="base-box form tc">
+			<button  @click="warningSet()" class="kcp_nbtn w120 mt20 mr10">保存</button>
+		</div>
+
+		<div class="kcp_router_title mb40">
 			设备运行参数配置
 		</div>
 
@@ -74,7 +95,7 @@
 				设备注销设置
 			</div>
 			<div class="form-container">
-				<button  @click="delete" class="kcp_nbtn w120">配置</button>
+				<button  @click="this.delete" class="kcp_nbtn w120">配置</button>
 			</div>
 		</div>
 	</div>
@@ -82,11 +103,16 @@
 <script>
 	
 	export default{
-		vuem:['ammeter.get_position_config','ammeter.save_position_config','ammeter.reset','ammeter.restore','ammeter.system_config','ammeter.position_delete'],
+		vuem:['ammeter.get_position_config','ammeter.save_position_config','ammeter.reset','ammeter.restore','ammeter.system_config', 'ammeter.position_delete','ammeter.save_config_warning'],
 		data(){
 			return{
 				id:'',
-				position:{}
+				position:{},
+				setWarning: {
+					positionId: this.$route.query.id,
+					currentValue: '',
+					powerValue: ''
+				}
 			}
 		},
 		methods:{
@@ -148,10 +174,23 @@
 			getPositionInfo:function(id){
 	          this.$m.ammeter.get_position_config({positionId:id}).then(res => {
 	            if (res.code === 10000) {
-	              this.position = res.data
+				  this.position = res.data
+				  this.setWarning = {
+					  ...res.data
+				  }
 	            }
 	          })
-	        }
+			},
+			warningSet: function () {
+				this.$m.ammeter.save_config_warning(this.setWarning).then(res => {
+					if(res.code==10000){
+						$KsDialog.success('保存成功!');
+		         	 	this.getPositionInfo(this.id)
+					}
+				}, err => {
+					console.log(err)
+				})
+			}
 		},
 		ready(){
 			this.id = this.$route.query.id

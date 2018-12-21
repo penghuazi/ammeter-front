@@ -56,7 +56,8 @@ export default  [
         name: '系统管理', icon: 'icon', menu_link: '',
         subMenu: [
           {name: '设备导入', icon: 'icon', link: 'device_import'},
-          {name: '系统配置', icon: 'icon', link: 'system_config'}
+          {name: '系统配置', icon: 'icon', link: 'system_config'},
+          {name: '通知联系人', icon: 'icon', link: 'set_contact'}
         ]
       },
       // {

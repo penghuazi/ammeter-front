@@ -147,6 +147,13 @@ export default {
                 component: function (resolve) {
                     require(['../view/bkpages/system/system_config.vue'], resolve)
                 }
-            }
+            },
+            'set_contact': {
+                name: 'set_contact',
+                title: 'edit',
+                component: function (resolve) {
+                    require(['../view/bkpages/system/set_contact.vue'], resolve)
+                }
+            },
         }
     }
